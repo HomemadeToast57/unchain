@@ -1,16 +1,24 @@
-import React, { useState } from "react";
-
+import React from "react";
 import "../css/Alert.css";
 
-const Alert = ({ errorMessage }) => {
+const Alert = ({ errorMessage, color, handleAlertClose}) => {
 
-  const [visible, setVisible] = useState(true);
+  function getHex() {
+    switch (color) {
+      case "red":
+        return "#f44336";
+      case "green":
+        return "#38824c";
+      default:
+        return "#ffffff";
+    }
+  }
 
   return (
-    <div className="alert" style={{display: visible ? 'block' : 'none'}}> 
+    <div className="alert" style={{backgroundColor: getHex(color)}}> 
       <span
         className="closebtn"
-        onClick={() => setVisible(false)}
+        onClick={() => handleAlertClose()}
       >
         &times;
       </span>

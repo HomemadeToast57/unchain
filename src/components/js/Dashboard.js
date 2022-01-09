@@ -3,8 +3,6 @@ import Alert from "./Alert";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
-import "../css/Dashboard.css";
-
 const Dashboard = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");

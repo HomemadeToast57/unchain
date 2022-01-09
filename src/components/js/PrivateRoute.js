@@ -7,8 +7,6 @@ const PrivateRoute = (props) => {
   const { currentUser } = useAuth()
   const user = currentUser;
 
-  console.log(user);
-
   return (
     user ? props.children : <Navigate to="/login"/>
   )

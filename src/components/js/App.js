@@ -1,13 +1,15 @@
 import React from "react";
 import { AuthProvider } from "../../contexts/AuthContext";
+import { TimeProvider } from "../../contexts/TimeContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "../css/App.css";
-import SignUp from "./Signup";
+import SignUp from "./SignUp";
 import Dashboard from "./Dashboard";
 import LogIn from "./Login";
-import PrivateRoute from "./PrivateRoute";
+import UserDataLoader from "../../loaders/UserDataLoader";
 import AuthRoute from "./AuthRoute";
 import ForgotPassword from "./ForgotPassword";
+import TimeLoader from "../../loaders/TimeLoader";
 
 function App() {
   return (
@@ -18,9 +20,13 @@ function App() {
             exact
             path="/"
             element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
+              <UserDataLoader>
+                <TimeProvider>
+                  <TimeLoader>
+                    <Dashboard />
+                  </TimeLoader>
+                </TimeProvider>
+              </UserDataLoader>
             }
           />
           <Route

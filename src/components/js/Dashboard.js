@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Alert from "./Alert";
 import { useAuth } from "../../contexts/AuthContext";
+import { useTime } from "../../contexts/TimeContext";
 import { Link, useNavigate } from "react-router-dom";
+import "../css/Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const { currentUser, logout, dataObj, loadingJSX } = useAuth();
+  const { logout, dataObj } = useAuth();
+  const { timeDisplay, saveTime } = useTime();
 
   async function handleLogout() {
     setError("");
@@ -20,28 +23,15 @@ const Dashboard = () => {
     }
   }
 
-  useEffect(() => {
-
-    const checkExists = async () => {
-      if (dataObj) {
-        await console.log("dataObj: ", dataObj);
-      }
-      else {
-        await console.log("dataObj is empty");
-      }
-    }
-
-    return checkExists();
-  });
-
   function handleAlertClose() {
     setError("");
   }
 
   const appJSX = (
     <div className="dashboard">
+      {timeDisplay}
       <div className="profile">
-        <h1>Profile</h1>
+        <h1 style={{ fontWeight: "800", fontSize: "2rem" }}>Dashboard</h1>
         {error && (
           <Alert
             color="red"
@@ -50,21 +40,29 @@ const Dashboard = () => {
           />
         )}
         <strong>Email: {dataObj && dataObj.email}</strong>
-        <Link to="/update-profile" className="logInSubmit">
-          Update Profile
+        <Link to="/update-profile">
+          <button
+            className="logInSubmit"
+            style={{ marginBottom: "20px", marginTop: "20px" }}
+          >
+            Update Profile
+          </button>
         </Link>
       </div>
       <button className="logInSubmit" onClick={handleLogout}>
         Log Out
       </button>
+      <button
+        className="reset logInSubmit"
+        style={{ marginTop: "20px" }}
+        onClick={() => saveTime()}
+      >
+        Reset Time
+      </button>
     </div>
   );
 
-  if (currentUser && (Object.keys(dataObj).length > 0)) {
-    return appJSX;
-  } else {
-    return loadingJSX;
-  }
+  return appJSX;
 };
 
 export default Dashboard;

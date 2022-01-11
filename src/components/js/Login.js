@@ -21,7 +21,7 @@ const Login = () => {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate('/');
+      return navigate('/');
     } catch (error) {
       setError("Failed to log in. Incorrect email or password.");
     }

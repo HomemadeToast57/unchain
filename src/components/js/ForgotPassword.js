@@ -37,41 +37,46 @@ const ForgotPassword = () => {
   }
 
   return (
-    <div className="signUp">
-      {error && (
-        <Alert
-          color={color}
-          errorMessage={error}
-          handleAlertClose={handleAlertClose}
-        />
-      )}
-      <div className="signUpCard">
-        <h1 className="signUpTitle">Password Reset</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="inputs">
-            <div id="email" className="formGroup">
-              <p className="emailLabel">Email</p>
-              <input
-                autoComplete="email"
-                type="email"
-                ref={emailRef}
-                required
-              />
+    <div className="app">
+      <div className="signUp">
+        {error && (
+          <Alert
+            color={color}
+            errorMessage={error}
+            handleAlertClose={handleAlertClose}
+          />
+        )}
+        <div className="signUpCard">
+          <h1 className="signUpTitle">Password Reset</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="inputs">
+              <div id="email" className="formGroup">
+                <p className="emailLabel">Email</p>
+                <input
+                  autoComplete="email"
+                  type="email"
+                  ref={emailRef}
+                  required
+                />
+              </div>
             </div>
-          </div>
 
-          <button disabled={loading} className="logInSubmit" type="submit">
-            Reset Password
-          </button>
-        </form>
-        <Link className="haveAccount have-account-link forgotPass" to="/login">
-          Return to Login
-        </Link>
-      </div>
-      <div className="haveAccount">
-        <Link to="/signup" className="have-account-link">
-          Need an account? Sign Up
-        </Link>
+            <button disabled={loading} className="logInSubmit" type="submit">
+              Reset Password
+            </button>
+          </form>
+          <Link
+            className="haveAccount have-account-link forgotPass"
+            to="/login"
+          >
+            Return to Login
+          </Link>
+        </div>
+        <div className="haveAccount">
+          <Link to="/signup" className="have-account-link">
+            Need an account? Sign Up
+          </Link>
+        </div>
       </div>
     </div>
   );

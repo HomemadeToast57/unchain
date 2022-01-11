@@ -5,11 +5,11 @@ import { useAuth } from "../../contexts/AuthContext";
 import "../css/Auth.css";
 import Alert from "./Alert";
 
-const Signup = () => {
+const SignUp = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmationRef = useRef();
-  const { signup, checkEmail, saveUser } = useAuth();
+  const { signup, checkEmail } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +27,6 @@ const Signup = () => {
     }
 
     const emails = await checkEmail(emailRef.current.value);
-    console.log(emails);
     if (emails.length !== 0) {
       return setError(
         "This email address is already in use with another account. Please sign in with that account or sign up with a new email address."
@@ -38,13 +37,16 @@ const Signup = () => {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      await saveUser();
-      navigate("/");
+      console.log("Saved user");
+      return async () => {
+        await setLoading(false);
+        await setError("");
+        await navigate("/");
+      };
     } catch (error) {
       setError("Failed to create account. " + error);
     }
 
-    setLoading(false);
   }
 
   function handleAlertClose() {
@@ -103,4 +105,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

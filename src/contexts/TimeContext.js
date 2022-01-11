@@ -16,6 +16,11 @@ export const TimeProvider = ({ children }) => {
   const [elapsedTime, setElapsedTime] = useState(0);
   const [timeDisplay, setTimeDisplay] = useState("");
 
+  // useEffect(() => {
+  //   setObjTime(dataObj.timeStart.toJSON().seconds);
+
+  // }, [dataObj.timeStart]);
+
   useEffect(() => {
     if (objTime) {
       const interval = setInterval(async () => {
@@ -50,7 +55,6 @@ export const TimeProvider = ({ children }) => {
         var sString = String(s).length !== 1 ? s : "0" + s;
 
         var finalStr = dString + ":" + hString + ":" + mString + ":" + sString;
-        console.log(finalStr);
 
         return finalStr;
       };

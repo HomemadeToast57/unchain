@@ -44,12 +44,19 @@ export function AuthProvider({ children }) {
   }
 
   function saveUser() {
-    usersRef.doc(auth.currentUser.uid).set({
-      email: auth.currentUser.email,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      timeStart: firebase.firestore.FieldValue.serverTimestamp(),
-      pastHistory: [],
-    });
+    const save = async () => {
+      const createdAtStamp = await firebase.firestore.Timestamp.now();
+      const timeStartStamp = firebase.firestore.Timestamp.now();
+      
+      await usersRef.doc(auth.currentUser.uid).set({
+        email: auth.currentUser.email,
+        createdAt: createdAtStamp,
+        timeStart: timeStartStamp,
+        pastHistory: [],
+      });
+    };
+
+    return save();
   }
 
   useEffect(() => {
@@ -59,7 +66,6 @@ export function AuthProvider({ children }) {
     const fetchData = async () => {
       const userRef = usersRef.doc(auth.currentUser.uid);
       const docSnapshot = await getDoc(userRef);
-      console.log(docSnapshot.data());
       setDataObj(docSnapshot.data());
     };
 
@@ -67,12 +73,18 @@ export function AuthProvider({ children }) {
       console.log("🚀");
       fetchData();
     }
+    setLoading(false);
   }, [currentUser]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setLoading(false);
+      if (user) {
+        console.log("signed in")
+      } else {
+        console.log("signed out")
+      }
       setCurrentUser(user);
+      setDataObj({});
     });
 
     return unsubscribe;
@@ -98,6 +110,7 @@ export function AuthProvider({ children }) {
     dataObj,
     loadingJSX,
     loading,
+    setLoading,
   };
 
   return (

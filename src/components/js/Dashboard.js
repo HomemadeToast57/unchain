@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { useTime } from "../../contexts/TimeContext";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/Dashboard.css";
+import Timer from "./Timer";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -13,7 +14,6 @@ const Dashboard = () => {
 
   async function handleLogout() {
     setError("");
-
     try {
       await logout();
       navigate("/login");
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   const appJSX = (
     <div className="dashboard">
-      {timeDisplay}
+      <Timer/>
       <div className="profile">
         <h1 style={{ fontWeight: "800", fontSize: "2rem" }}>Dashboard</h1>
         {error && (

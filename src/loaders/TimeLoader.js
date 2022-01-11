@@ -1,12 +1,11 @@
-import { useTime } from '../contexts/TimeContext'
-import { useAuth } from '../contexts/AuthContext'
+import { useTime } from "../contexts/TimeContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const TimeLoader = ({ children }) => {
+  const { elapsedTime } = useTime();
+  const { loadingJSX } = useAuth();
 
-    const { elapsedTime } = useTime()
-    const { loadingJSX } = useAuth()
-    
-    return elapsedTime ? children : loadingJSX;
-}
+  return elapsedTime ? children : loadingJSX;
+};
 
-export default TimeLoader
+export default TimeLoader;

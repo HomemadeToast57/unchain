@@ -7,6 +7,7 @@ const UserDataLoader = ({ children }) => {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
 
+  /* ----------------------------- Check If Ready ----------------------------- */
   useEffect(() => {
     if (currentUser) {
       try {

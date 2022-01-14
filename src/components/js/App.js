@@ -10,11 +10,13 @@ import UserDataLoader from "../../loaders/UserDataLoader";
 import AuthRoute from "./AuthRoute";
 import ForgotPassword from "./ForgotPassword";
 import TimeLoader from "../../loaders/TimeLoader";
+import NavBar from "./NavBar";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
+        <NavBar />
         <Routes>
           <Route
             exact

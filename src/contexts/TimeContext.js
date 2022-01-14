@@ -15,6 +15,7 @@ export const TimeProvider = ({ children }) => {
   const [objTime, setObjTime] = useState(dataObj.timeStart.toJSON().seconds);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [timeDisplay, setTimeDisplay] = useState("");
+  const [timeObj, setTimeObj] = useState({});
 
   // useEffect(() => {
   //   setObjTime(dataObj.timeStart.toJSON().seconds);
@@ -49,12 +50,19 @@ export const TimeProvider = ({ children }) => {
         var m = Math.floor((seconds % 3600) / 60);
         var s = Math.floor(seconds % 60);
 
-        var dString = String(d).length !== 1 ? d : "0" + d;
+        setTimeObj({
+          d: d,
+          h: h,
+          m: m,
+          s: s,
+        });
+
+        // var dString = String(d).length !== 1 ? d : "0" + d;
         var hString = String(h).length !== 1 ? h : "0" + h;
         var mString = String(m).length !== 1 ? m : "0" + m;
         var sString = String(s).length !== 1 ? s : "0" + s;
 
-        var finalStr = dString + ":" + hString + ":" + mString + ":" + sString;
+        var finalStr = hString + ":" + mString + ":" + sString;
 
         return finalStr;
       };
@@ -109,7 +117,7 @@ export const TimeProvider = ({ children }) => {
     console.log("reset time");
   };
 
-  const values = { elapsedTime, timeDisplay, saveTime };
+  const values = { elapsedTime, timeDisplay, saveTime, timeObj };
 
   //return provider
   return <TimeContext.Provider value={values}>{children}</TimeContext.Provider>;

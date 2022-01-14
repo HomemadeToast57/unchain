@@ -1,27 +1,13 @@
 import React, { useState } from "react";
 import Alert from "./Alert";
-import { useAuth } from "../../contexts/AuthContext";
 import { useTime } from "../../contexts/TimeContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../css/Dashboard.css";
 import Timer from "./Timer";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
   const [error, setError] = useState("");
-  const { logout, dataObj } = useAuth();
-  const { timeDisplay, saveTime } = useTime();
-
-  async function handleLogout() {
-    setError("");
-    try {
-      await logout();
-      navigate("/login");
-    } catch (error) {
-      console.log("error logging out: ", error);
-      setError("Failed to log out." + error);
-    }
-  }
+  const { saveTime } = useTime();
 
   function handleAlertClose() {
     setError("");
@@ -29,9 +15,11 @@ const Dashboard = () => {
 
   const appJSX = (
     <div className="dashboard">
-      <Timer/>
+      <div className="timerContainer">
+        <Timer />
+      </div>
       <div className="profile">
-        <h1 style={{ fontWeight: "800", fontSize: "2rem" }}>Dashboard</h1>
+        {/* <h1 style={{ fontWeight: "800", fontSize: "2rem" }}>Dashboard</h1> */}
         {error && (
           <Alert
             color="red"
@@ -39,26 +27,46 @@ const Dashboard = () => {
             handleAlertClose={handleAlertClose}
           />
         )}
-        <strong>Email: {dataObj && dataObj.email}</strong>
         <Link to="/update-profile">
-          <button
+          {/* <button
             className="logInSubmit"
             style={{ marginBottom: "20px", marginTop: "20px" }}
           >
             Update Profile
-          </button>
+          </button> */}
         </Link>
       </div>
-      <button className="logInSubmit" onClick={handleLogout}>
+      {/* <button className="logInSubmit" onClick={handleLogout}>
         Log Out
-      </button>
+      </button> */}
       <button
-        className="reset logInSubmit"
+        className="resetBtn"
         style={{ marginTop: "20px" }}
         onClick={() => saveTime()}
       >
-        Reset Time
+        <i className="fas fa-undo-alt"></i>
       </button>
+
+      <div className="bottomButtons">
+        <div className="ranks bottomButtonContainer">
+          <button className="bottomButton">
+            <i className="fas fa-trophy"></i>
+          </button>
+          <h1 className="bottomButtonText">Ranks</h1>
+        </div>
+        <div className="panic bottomButtonContainer">
+          <button className="bottomButton">
+            <i className="fas fa-user-shield"></i>
+          </button>
+          <h1 className="bottomButtonText">Panic</h1>
+        </div>
+        <div className="history bottomButtonContainer">
+          <button className="bottomButton">
+            <i className="fas fa-history"></i>
+          </button>
+          <h1 className="bottomButtonText">History</h1>
+        </div>
+      </div>
     </div>
   );
 

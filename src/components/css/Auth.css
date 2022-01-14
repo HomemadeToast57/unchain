@@ -1,3 +1,8 @@
+/* give all text color primary var as color */
+html {
+  color: var(--color-primary);
+}
+
 .signUp {
   width: min(var(--signUpWidth), 90%);
   height: 500px;
@@ -61,8 +66,8 @@ form {
   border-radius: var(--borderRadius);
   color: white;
   font-size: 1.15rem;
-
-  background: linear-gradient(-45deg, #9b533d, #be3a6d, #2a8aad, #2faa8d);
+  background: var(--color-primary);
+  /* background: linear-gradient(-45deg, #9b533d, #be3a6d, #2a8aad, #2faa8d); */
   background-size: 400% 400%;
   animation: gradient 8s ease infinite;
 }
@@ -79,7 +84,8 @@ form {
   }
 }
 
-.signUpSubmit:hover, .logInSubmit:hover {
+.signUpSubmit:hover,
+.logInSubmit:hover {
   cursor: pointer;
   /* background-color: #0d6efd; */
   /* gradient background */
@@ -97,13 +103,10 @@ form {
 
 .haveAccount:hover {
   cursor: pointer;
-  text-decoration: underline;
-  background: linear-gradient(-45deg, #9b533d, #be3a6d, #2a8aad, #2faa8d);
+  color: var(--color-primary);
+  opacity: 0.4;
   background-size: 400% 400%;
   animation: text-gradient 8s ease infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .forgotPass {

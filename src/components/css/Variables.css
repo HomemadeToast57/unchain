@@ -1,4 +1,6 @@
 :root {
+    --color-primary: #242424;
+    --timer-size: 600px;
     --signUpWidth: 600px;
     --borderRadius: 5px;
 }

@@ -11,6 +11,8 @@ import AuthRoute from "./AuthRoute";
 import ForgotPassword from "./ForgotPassword";
 import TimeLoader from "../../loaders/TimeLoader";
 import NavBar from "./NavBar";
+import History from "./History";
+import Ranks from "./Ranks";
 
 function App() {
   return (
@@ -26,6 +28,30 @@ function App() {
                 <TimeProvider>
                   <TimeLoader>
                     <Dashboard />
+                  </TimeLoader>
+                </TimeProvider>
+              </UserDataLoader>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <UserDataLoader>
+                <TimeProvider>
+                  <TimeLoader>
+                    <History />
+                  </TimeLoader>
+                </TimeProvider>
+              </UserDataLoader>
+            }
+          />
+          <Route
+            path="/rank"
+            element={
+              <UserDataLoader>
+                <TimeProvider>
+                  <TimeLoader>
+                    <Ranks />
                   </TimeLoader>
                 </TimeProvider>
               </UserDataLoader>

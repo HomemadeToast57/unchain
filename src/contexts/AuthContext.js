@@ -15,6 +15,7 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
   const [dataObj, setDataObj] = useState({});
+  const [currentPage, setCurrentPage] = useState("Unchain");
   const db = firebase.firestore();
   const usersRef = db.collection("users");
 
@@ -111,6 +112,8 @@ export function AuthProvider({ children }) {
     loadingJSX,
     loading,
     setLoading,
+    setCurrentPage,
+    currentPage,
   };
 
   return (

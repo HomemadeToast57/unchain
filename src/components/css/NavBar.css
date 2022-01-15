@@ -114,7 +114,7 @@ a:hover {
     border-radius: var(--borderRadius) 0 0 var(--borderRadius);
     position: fixed;
     padding: 20px;
-    width: calc(50vw);
+    width: fit-content;
     height: fit-content;
     background: var(--color-primary);
     top: 80px;

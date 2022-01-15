@@ -24,15 +24,17 @@ const Timer = () => {
   }, [elapsedTime]);
 
   return (
-    <div className="timerContainerDiv"
-    >
+    <div className="timerContainerDiv">
       <CircularProgressbarWithChildren
         value={dayPercent}
-        styles={buildStyles({ textSize: "1rem", strokeLinecap: "butt", })} strokeWidth={4} className="darkmode-ignore"
-      >
-        <h1 className="days">{timeObj.d !== 1 ? timeObj.d + " days" : timeObj.d + " day"}</h1>
+        styles={buildStyles({ textSize: "1rem", strokeLinecap: "round" })}
+        strokeWidth={4}      >
+        <h1 className="days">
+          {timeObj.d !== 1 ? timeObj.d + " days" : timeObj.d + " day"}
+        </h1>
         <h2 className="clock">{timeDisplay}</h2>
 
+        <h3 className="sobriety">of sobriety</h3>
       </CircularProgressbarWithChildren>
     </div>
   );

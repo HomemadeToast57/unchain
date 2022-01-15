@@ -95,9 +95,10 @@ export const TimeProvider = ({ children }) => {
 
     //add to past history
     let history = await dataObj.pastHistory;
-    history.push({
+    await history.push({
       milliseconds: diff,
-      time: firebase.firestore.Timestamp.now(),
+      endTime: firebase.firestore.Timestamp.now(),
+      startTime: dataObj.timeStart,
     });
     console.log(history);
     console.log(history.length);

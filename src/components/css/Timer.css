@@ -5,3 +5,13 @@
 .clock {
     font-size: 1.2rem;
 }
+
+.sobriety {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.timerChain {
+    width: 800px;
+    height: 800px;
+}

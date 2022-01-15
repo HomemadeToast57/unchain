@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import BottomNav from "../components/js/BottomNav";
 
 const UserDataLoader = ({ children }) => {
   const { currentUser, dataObj, loadingJSX } = useAuth();
@@ -24,7 +25,11 @@ const UserDataLoader = ({ children }) => {
   }, [currentUser, dataObj.timeStart]);
 
   if (ready) {
-    return children;
+    return (<>
+    <BottomNav />
+    {children}
+    </>
+      );
   } else {
     return loadingJSX;
   }

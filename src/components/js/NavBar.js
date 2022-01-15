@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
-  const { currentUser, logout } = useAuth();
+  const { currentUser, logout, currentPage } = useAuth();
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -19,15 +19,17 @@ const NavBar = () => {
     }
   }
 
+  const goHome = () => {
+    navigate('/');
+  };
+
   const jsx = (
     <nav>
       <input type='checkbox' id='check' />
       <label htmlFor='check' className='checkbtn'>
         <i className='fas fa-bars hamburger'></i>
       </label>
-      <a className='logoLink' href='/'>
-        <label className='logo'>Unchain</label>
-      </a>
+        <label onClick={goHome} className='logo'>{currentPage}</label>
       <ul>
         {!currentUser && (
           <li>
@@ -50,11 +52,6 @@ const NavBar = () => {
     </nav>
   );
 
-  // if (currentUser) {
-  //   return authJSX;
-  // } else {
-  //   return guestJSX;
-  // }
   return jsx;
 };
 

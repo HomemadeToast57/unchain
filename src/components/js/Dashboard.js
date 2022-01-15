@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Alert from "./Alert";
 import { useTime } from "../../contexts/TimeContext";
-import { Link } from "react-router-dom";
 import "../css/Dashboard.css";
 import Timer from "./Timer";
 
@@ -27,18 +26,7 @@ const Dashboard = () => {
             handleAlertClose={handleAlertClose}
           />
         )}
-        <Link to="/update-profile">
-          {/* <button
-            className="logInSubmit"
-            style={{ marginBottom: "20px", marginTop: "20px" }}
-          >
-            Update Profile
-          </button> */}
-        </Link>
       </div>
-      {/* <button className="logInSubmit" onClick={handleLogout}>
-        Log Out
-      </button> */}
       <button
         className="resetBtn"
         style={{ marginTop: "20px" }}
@@ -46,27 +34,6 @@ const Dashboard = () => {
       >
         <i className="fas fa-undo-alt"></i>
       </button>
-
-      <div className="bottomButtons">
-        <div className="ranks bottomButtonContainer">
-          <button className="bottomButton">
-            <i className="fas fa-trophy"></i>
-            <h1 className="bottomButtonText">Ranks</h1>
-          </button>
-        </div>
-        <div className="panic bottomButtonContainer">
-          <button className="bottomButton">
-            <i className="fas fa-user-shield"></i>
-          <h1 className="bottomButtonText">Panic</h1>
-          </button>
-        </div>
-        <div className="history bottomButtonContainer">
-          <button className="bottomButton">
-            <i className="fas fa-history"></i>
-          <h1 className="bottomButtonText">History</h1>
-          </button>
-        </div>
-      </div>
     </div>
   );
 

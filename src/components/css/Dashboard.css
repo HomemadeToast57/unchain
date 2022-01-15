@@ -67,6 +67,11 @@
   border: 1px solid rgb(202, 209, 215);
 }
 
+.bottomButton > i {
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
 .bottomButtonText {
   font-size: 15px;
   color: var(--color-primary);
@@ -83,5 +88,9 @@
   .bottomButton {
     width: 70px;
     height: 70px;
+  }
+
+  .bottomButton > i {
+    font-size: 30px;
   }
 }

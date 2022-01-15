@@ -51,20 +51,20 @@ const Dashboard = () => {
         <div className="ranks bottomButtonContainer">
           <button className="bottomButton">
             <i className="fas fa-trophy"></i>
+            <h1 className="bottomButtonText">Ranks</h1>
           </button>
-          <h1 className="bottomButtonText">Ranks</h1>
         </div>
         <div className="panic bottomButtonContainer">
           <button className="bottomButton">
             <i className="fas fa-user-shield"></i>
-          </button>
           <h1 className="bottomButtonText">Panic</h1>
+          </button>
         </div>
         <div className="history bottomButtonContainer">
           <button className="bottomButton">
             <i className="fas fa-history"></i>
-          </button>
           <h1 className="bottomButtonText">History</h1>
+          </button>
         </div>
       </div>
     </div>

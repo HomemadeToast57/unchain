@@ -1,3 +1,12 @@
+.timerContents {
+    height: 100%;
+    padding: 50px 20px 50px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .days {
     font-size: 3rem;
 }
@@ -11,7 +20,12 @@
     margin-top: 10px;
 }
 
-.timerChain {
-    width: 800px;
-    height: 800px;
+.chain {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.chainPath {
+    fill: var(--color-primary);
+    stroke: none;
 }

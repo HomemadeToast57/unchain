@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { confirmAlert } from "react-confirm-alert";
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import { useAuth } from "../../contexts/AuthContext";
 import { useTime } from "../../contexts/TimeContext";
 import "../css/History.css";
@@ -41,7 +41,9 @@ const History = () => {
         },
         {
           label: "No",
-          onClick: () => {return true},
+          onClick: () => {
+            return true;
+          },
         },
       ],
     });
@@ -68,6 +70,7 @@ const History = () => {
           return (
             <div key={index} className="historyItem">
               <h1 className="timeSober">{displayTime(item.milliseconds)}</h1>
+              <div className="horizontalLine"></div>
               <h2 className="timeFrame">
                 {item.startTime.toDate().toLocaleTimeString([], {
                   hour: "2-digit",

@@ -1,10 +1,15 @@
 .historyDiv {
-  width: 80vw;
+   width: 80vw;
   height: calc(100vh - 160px);
   margin: 90px auto auto auto;
-  overflow: scroll;
+}
 
-  background: white;
+.historyContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow: scroll;
+    margin-top: 60px;
 }
 
 .historyTitle {
@@ -16,14 +21,15 @@
 }
 
 .historyItem {
-  width: 100%;
-  height: 60px;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid black;
+   height: 100px;
+    width: 70%;
+    background: rgb(236, 236, 236);
+    margin-bottom: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .timeSober {

@@ -8,16 +8,15 @@
 }
 
 .days {
-    font-size: 3rem;
+    font-size: min(10vh, 10vw);
 }
 
 .clock {
-    font-size: 1.2rem;
+    font-size: min(5vh, 5vw);
 }
 
 .sobriety {
-    font-size: 1rem;
-    margin-top: 10px;
+    font-size: min(3vh, 3vw);
 }
 
 .chain {

@@ -11,7 +11,7 @@ export const useTime = () => {
 
 export const TimeProvider = ({ children }) => {
   const db = firebase.firestore();
-  const { currentUser, dataObj } = useAuth();
+  const { currentUser, dataObj, setDataObj } = useAuth();
   const [objTime, setObjTime] = useState(dataObj.timeStart.toJSON().seconds);
   const [elapsedTime, setElapsedTime] = useState(0);
   const [timeDisplay, setTimeDisplay] = useState("");
@@ -84,14 +84,12 @@ export const TimeProvider = ({ children }) => {
   }
 
   const saveTime = async () => {
-    console.log(objTime);
     const past = objTime * 1000;
     let current = await new Date(
       firebase.firestore.Timestamp.now().seconds * 1000
     ).getTime();
 
     let diff = current - past;
-    console.log(("diff", diff));
 
     //add to past history
     let history = await dataObj.pastHistory;
@@ -100,11 +98,8 @@ export const TimeProvider = ({ children }) => {
       endTime: firebase.firestore.Timestamp.now(),
       startTime: dataObj.timeStart,
     });
-    console.log(history);
-    console.log(history.length);
     //update past history
 
-    console.log(currentUser.uid);
     await db.collection("users").doc(`${currentUser.uid}`).update({
       pastHistory: history,
       timeStart: firebase.firestore.Timestamp.now(),
@@ -118,7 +113,18 @@ export const TimeProvider = ({ children }) => {
     console.log("reset time");
   };
 
-  const values = { elapsedTime, timeDisplay, saveTime, timeObj };
+  const resetHistory = async () => {
+    await db.collection("users").doc(`${currentUser.uid}`).update({
+      pastHistory: [],
+    });
+
+    await setDataObj({
+      ...dataObj,
+      pastHistory: [],
+    });
+  };
+
+  const values = { elapsedTime, timeDisplay, saveTime, timeObj, resetHistory };
 
   //return provider
   return <TimeContext.Provider value={values}>{children}</TimeContext.Provider>;

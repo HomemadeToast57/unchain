@@ -114,6 +114,7 @@ export function AuthProvider({ children }) {
     setLoading,
     setCurrentPage,
     currentPage,
+    setDataObj,
   };
 
   return (

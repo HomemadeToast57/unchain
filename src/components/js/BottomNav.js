@@ -49,7 +49,7 @@ const BottomNav = () => {
           <h1 className="bottomButtonText">My Rank</h1>
         </button>
       </div>
-      <div className="panic bottomButtonContainer">
+      <div style={{display: "none"}} className="panic bottomButtonContainer">
         <button onClick={() => handlePanic()} className="bottomButton">
           <i className="fas fa-user-shield"></i>
           <h1 className="bottomButtonText">Panic</h1>

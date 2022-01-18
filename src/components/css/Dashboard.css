@@ -5,10 +5,6 @@
 }
 
 .timerContainer {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   margin: auto;
 }
 
@@ -41,7 +37,7 @@
   bottom: 0;
   left: 0;
   right: unset;
-  height: min(60px, 10vh);
+  height: min(60px);
   width: 250px;
   align-items: center;
   justify-content: center;
@@ -80,7 +76,7 @@
 /* media for bigger display than 858px */
 @media screen and (min-width: 858px) {
   .bottomButtons {
-    height: min(90px, 10vh);
+    height: min(90px);
   }
 
   .resetBtn {

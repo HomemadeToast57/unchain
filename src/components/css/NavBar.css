@@ -82,9 +82,8 @@ a:hover {
 }
 
 .timerContainer {
-  width: var(--timer-size);
-  height: var(--timer-size);
-}
+    width: min(75vh, 80vw);
+  }
 
 
 @media (max-width: 952px) {
@@ -97,10 +96,7 @@ a:hover {
   }
 }
 @media (max-width: 858px) {
-  .timerContainer {
-    width: min(min(80vw, 90vh), var(--timer-size));
-    height: min(min(80vw, 90vh), var(--timer-size));
-  }
+
   .userEmailNav,
   .logoutIconNav {
     color: var(--color-primary);

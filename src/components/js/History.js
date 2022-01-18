@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { confirmAlert } from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { useAuth } from "../../contexts/AuthContext";
+import { useTime } from "../../contexts/TimeContext";
 import "../css/History.css";
 
 const History = () => {
   const { dataObj } = useAuth();
+  const { resetHistory } = useTime();
 
   const displayTime = (sec) => {
     let seconds = Number(Math.floor(sec / 1000));
@@ -18,9 +22,48 @@ const History = () => {
     return finalStr;
   };
 
+  useEffect(() => {
+    if (dataObj.pastHistory.length === 0) {
+      document.getElementById("resetHistory").disabled = true;
+    } else {
+      document.getElementById("resetHistory").disabled = false;
+    }
+  });
+
+  const submit = () => {
+    confirmAlert({
+      title: "Confirm to reset history.",
+      message: "Are you sure to do this? This cannot be undone.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => resetHistory(),
+        },
+        {
+          label: "No",
+          onClick: () => {return true},
+        },
+      ],
+    });
+  };
+
   return (
     <div className="historyDiv">
       <div className="historyContainer">
+        <button
+          className="resetBtn"
+          id="resetHistory"
+          style={{ marginTop: "20px" }}
+          onClick={submit}
+        >
+          <i className="fas fa-trash"></i>
+        </button>
+        {dataObj.pastHistory.length === 0 && (
+          <h1 className="noHistory">
+            There is nothing in your history. When you press reset, your past
+            history will be listed here.
+          </h1>
+        )}
         {dataObj.pastHistory.map((item, index) => {
           return (
             <div key={index} className="historyItem">

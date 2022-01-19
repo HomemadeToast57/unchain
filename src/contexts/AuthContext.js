@@ -1,9 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { auth } from "../firebase";
-import "../components/css/LoadingRing.css";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { getDoc } from "@firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -18,6 +18,7 @@ export function AuthProvider({ children }) {
   const [currentPage, setCurrentPage] = useState("Unchain");
   const db = firebase.firestore();
   const usersRef = db.collection("users");
+  const navigate = useNavigate();
 
   function signup(email, password) {
     const register = async () => {
@@ -83,12 +84,14 @@ export function AuthProvider({ children }) {
         console.log("signed in")
       } else {
         console.log("signed out")
+        navigate("/login");
       }
       setCurrentUser(user);
       setDataObj({});
     });
 
     return unsubscribe;
+    // eslint-disable-next-line
   }, []);
 
   const value = {

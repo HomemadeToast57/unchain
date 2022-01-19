@@ -44,7 +44,7 @@ form {
 }
 
 .formGroup > p {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   font-size: 1.15rem;
 }
 
@@ -67,9 +67,23 @@ form {
   border-radius: var(--borderRadius);
   color: var(--opposing-text);
   font-size: 1.15rem;
-  background: var(--color-tertiary); 
+  background: var(--color-tertiary);
+  /* background: linear-gradient(-45deg, #9b533d, #be3a6d, #2a8aad, #2faa8d); */
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .signUpSubmit:hover,
 .logInSubmit:hover {
@@ -88,7 +102,6 @@ form {
 .have-account-link:hover {
   cursor: pointer;
   text-decoration: underline;
-  background: none;
 }
 
 .haveAccount {
@@ -106,4 +119,3 @@ form {
 .forgotPass {
   margin-top: 20px;
 }
-

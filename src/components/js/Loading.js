@@ -1,5 +1,6 @@
 import React from "react";
-import "../css/Loading.css";
+import "../css/LoadingRing.css";
+
 
 const Loading = () => {
   return (

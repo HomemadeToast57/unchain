@@ -9,8 +9,10 @@ const UserDataLoader = ({ children }) => {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
 
+
   /* ----------------------------- Check If Ready ----------------------------- */
   useEffect(() => {
+
     if (currentUser) {
       try {
         if (dataObj.timeStart.toJSON() !== undefined) {
@@ -25,15 +27,17 @@ const UserDataLoader = ({ children }) => {
     // eslint-disable-next-line
   }, [currentUser, dataObj.timeStart]);
 
-  if (ready) {
-    return (<>
-    <BottomNav />
-    {children}
-    </>
-      );
-  } else {
-    return <Loading/>;
-  }
+  return (
+    <div>
+      {ready ? (
+        <>
+          <BottomNav /> {children}
+        </>
+      ) : (
+        <Loading />
+      )}
+    </div>
+  );
 };
 
 export default UserDataLoader;

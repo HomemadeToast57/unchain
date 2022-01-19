@@ -21,7 +21,7 @@ const Login = () => {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      return navigate('/');
+      return navigate("/");
     } catch (error) {
       setError("Failed to log in. Incorrect email or password.");
     }
@@ -34,56 +34,52 @@ const Login = () => {
   }
 
   return (
-    <div className="app">
-      <div className="signUp">
-        {error && (
-          <Alert
-            color="red"
-            errorMessage={error}
-            handleAlertClose={handleAlertClose}
-          />
-        )}
-        <div className="signUpCard">
-          <h1 className="signUpTitle">Log In</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="inputs">
-              <div id="email" className="formGroup">
-                <p className="emailLabel">Email</p>
-                <input
-                  autoComplete="email"
-                  type="email"
-                  ref={emailRef}
-                  required
-                />
-              </div>
-              <div id="password" className="formGroup">
-                <p className="passwordLabel">Password</p>
-                <input
-                  autoComplete="current-password"
-                  type="password"
-                  ref={passwordRef}
-                  required
-                />
-              </div>
+    <div className="auth">
+      {error && (
+        <Alert
+          color="red"
+          errorMessage={error}
+          handleAlertClose={handleAlertClose}
+        />
+      )}
+      <div className="authDiv">
+        <h1 className="authTitle">Log In</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="inputs">
+            <div id="email" className="formGroup">
+              <p className="emailLabel">Email</p>
+              <input
+                autoComplete="email"
+                type="email"
+                ref={emailRef}
+                required
+              />
             </div>
+            <div id="password" className="formGroup">
+              <p className="passwordLabel">Password</p>
+              <input
+                autoComplete="current-password"
+                type="password"
+                ref={passwordRef}
+                required
+              />
+            </div>
+          </div>
 
-            <button disabled={loading} className="logInSubmit" type="submit">
-              Log In
-            </button>
-          </form>
-          <Link
-            className="haveAccount have-account-link forgotPass"
-            to="/forgot-password"
-          >
-            Forgot Password
-          </Link>
-        </div>
-        <div className="haveAccount">
-          <Link to="/signup" className="have-account-link">
-            Need an account? Sign Up
-          </Link>
-        </div>
+          <button disabled={loading} className="logInSubmit" type="submit">
+            Log In
+          </button>
+        </form>
+        <Link
+          className="haveAccount have-account-link forgotPass"
+          to="/forgot-password"
+        >
+          Forgot Password
+        </Link>
       </div>
+      <Link to="/signup" className="haveAccount have-account-link">
+        Need an account? Sign Up
+      </Link>
     </div>
   );
 };

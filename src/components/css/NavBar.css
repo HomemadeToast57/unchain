@@ -14,21 +14,25 @@ nav {
   top: 0;
   height: 80px;
   width: 100%;
+  background: var(--background-color);
+  /* border-bottom: 3px solid var(--color-secondary); */
 }
 
 nav ~ i {
   font-size: 1.5rem;
 }
 
-.themeToggle {
+.navButton {
   border: none;
   background: none;
   color: var(--opposing-text);
-  padding: 7px 14px;
+  height: 40px;
+  width: 40px;
+  border-radius: var(--borderRadius);
 }
 
-.themeToggle:hover {
-  background: var(opposing-text);
+.navButton:hover {
+  background: var(--background-color);
   transition: 0.5s;
 }
 
@@ -85,13 +89,13 @@ a:hover {
 }
 
 .userEmailNav {
-  color: var(--opposing-text);
+  color: var(--color-primary);
 }
 
 .iconNav {
   font-size: 20px;
   line-height: 80px;
-  color: var(--opposing-text);
+  color: var(--color-primary);
   cursor: pointer;
 }
 
@@ -102,7 +106,7 @@ a:hover {
 
 .userEmailNav,
 .logoutIconNav {
-  color: var(--opposing-text);
+  color: var(--color-primary);
 }
 
 @media (max-width: 952px) {
@@ -124,8 +128,8 @@ a:hover {
     padding: 20px;
     width: fit-content;
     height: fit-content;
-    background: var(--color-primary);
-    top: 80px;
+    background: var(--color-secondary);
+    top: 85px;
     right: -120%;
     text-align: center;
     transition: all 0.5s;
@@ -163,5 +167,17 @@ section {
   }
   .userEmailNav {
     color: var(--color-primary);
+  }
+
+  .navButton:hover {
+    background: var(--color-secondary);
+    transition: 0.5s;
+  }
+}
+
+@media screen and (min-height: 650px) {
+  nav {
+    background: var(--background-color);
+    border-bottom: 3px solid var(--color-secondary);
   }
 }

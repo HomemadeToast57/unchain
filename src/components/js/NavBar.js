@@ -22,13 +22,17 @@ const NavBar = () => {
   }
 
   const goHome = () => {
-    navigate("/");
+    if (currentUser) {
+      navigate("/");
+    } else {
+      navigate("/login");
+    }
   };
 
   const changeTheme = async (e) => {
     //prevent reloading page
     e.preventDefault();
-    return await toggleTheme();    
+    return await toggleTheme();
   };
 
   const jsx = (
@@ -43,24 +47,36 @@ const NavBar = () => {
       <ul>
         {!currentUser && (
           <li>
-            <a href="/about">About</a>
+            <div className="navElement">
+              <a href="/about">About</a>
+            </div>
           </li>
         )}
         <li>
-          <button className={"themeToggle"} onClick={changeTheme}>
-            <i className={`fas fa-${theme === "light" ? "moon" : "sun"} iconNav`}></i>
-          </button>
+          <div className="navElement">
+            <button className={"navButton"} onClick={changeTheme}>
+              <i
+                className={`fas fa-${
+                  theme === "light" ? "moon" : "sun"
+                } iconNav`}
+              ></i>
+            </button>
+          </div>
         </li>
         {currentUser && (
           <li>
-            <h1 className="userEmailNav">{currentUser.email}</h1>
+            <div className="navElement">
+              <h1 className="userEmailNav">{currentUser.email}</h1>
+            </div>
           </li>
         )}
         {currentUser && (
-          <li onClick={handleLogout}>
-            <a href="#0">
-              <i className="fas fa-sign-out-alt iconNav"></i>
-            </a>
+          <li>
+            <div className="navElement">
+              <button className={"navButton"} onClick={handleLogout}>
+                <i className="fas fa-sign-out-alt iconNav"></i>
+              </button>
+            </div>
           </li>
         )}
       </ul>

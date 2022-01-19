@@ -3,37 +3,40 @@ html {
   color: var(--color-primary);
 }
 
-.signUp {
-  width: min(var(--signUpWidth), 90%);
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.signUpCard {
-  margin: 0px 30px 1rem 30px;
+.auth {
+  width: min(var(--signUpWidth), 80%);
   height: fit-content;
-  max-width: 800px;
-  border-radius: var(--borderRadius);
-  padding: 10px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 40px;
 }
 
-.signUpTitle {
+.authDiv {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.authTitle {
   font-size: 2.5rem;
   margin-bottom: 30px;
+  width: 100%;
+  text-align: left;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex: 1;
+  width: 100%;
 }
 
 .inputs {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .formGroup {
@@ -44,7 +47,7 @@ form {
 }
 
 .formGroup > p {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 1.15rem;
 }
 
@@ -93,20 +96,12 @@ form {
   opacity: 0.8;
 }
 
-.have-account-link {
-  color: inherit;
-  text-decoration: inherit;
-  background: none;
-}
 
-.have-account-link:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.haveAccount {
+.haveAccount, .have-account-link {
   text-align: center;
+  width: 100%;
   color: var(--color-primary);
+  margin-bottom: 20px;
 }
 
 .haveAccount:hover {
@@ -117,5 +112,18 @@ form {
 }
 
 .forgotPass {
-  margin-top: 20px;
+  margin-top: 30px;
+}
+
+@media screen and (min-height: 620px) {
+  .auth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    margin: auto;
+  }
+  
 }

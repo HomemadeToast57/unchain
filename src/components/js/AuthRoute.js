@@ -6,6 +6,9 @@ const AuthRoute = (props) => {
   const { currentUser } = useAuth();
   const user = currentUser;
 
+  console.log("AuthRoute");
+  
+
   return !user ? props.children : <Navigate to="/" />;
 };
 

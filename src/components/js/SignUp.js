@@ -54,8 +54,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className="app">
-      <div className="signUp">
+      <div className="auth">
         {error && (
           <Alert
             color="red"
@@ -63,8 +62,8 @@ const SignUp = () => {
             handleAlertClose={handleAlertClose}
           />
         )}
-        <div className="signUpCard">
-          <h1 className="signUpTitle">Sign Up</h1>
+        <div className="authDiv">
+          <h1 className="authTitle">Sign Up</h1>
           <form onSubmit={handleSubmit}>
             <div className="inputs">
               <div id="email" className="formGroup">
@@ -95,13 +94,10 @@ const SignUp = () => {
             </button>
           </form>
         </div>
-        <div className="haveAccount">
-          <Link to="/login" className="have-account-link">
+          <Link to="/login" className="haveAccount have-account-link forgotPass">
             Already have an account? Log In
           </Link>
-        </div>
       </div>
-    </div>
   );
 };
 

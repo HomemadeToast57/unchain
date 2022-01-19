@@ -8,6 +8,7 @@
   --timer-color: #0f1416;
   --timer-fill-color: #0f1416;
   --opposing-text: #242424;
+  --opposing-text-secondary: #3c3c3c;
 }
 
 [data-theme="light"] {
@@ -19,4 +20,5 @@
   --background-color: #ffffff;
   --timer-color: #ececec;
   --opposing-text: #ececec;
+  --opposing-text-secondary: #cacaca;
 }

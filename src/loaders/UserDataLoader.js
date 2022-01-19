@@ -22,7 +22,7 @@ const UserDataLoader = ({ children }) => {
   }, [currentUser, dataObj.timeStart]);
 
   return (
-    <div>
+    <div className="pageContainer">
       {ready ? (
         <>
           <BottomNav /> {children}

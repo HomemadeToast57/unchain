@@ -3,7 +3,7 @@ import { auth } from "../firebase";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { getDoc } from "@firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -19,6 +19,7 @@ export function AuthProvider({ children }) {
   const db = firebase.firestore();
   const usersRef = db.collection("users");
   const navigate = useNavigate();
+  const location = useLocation();
 
   function signup(email, password) {
     const register = async () => {
@@ -49,7 +50,7 @@ export function AuthProvider({ children }) {
     const save = async () => {
       const createdAtStamp = await firebase.firestore.Timestamp.now();
       const timeStartStamp = firebase.firestore.Timestamp.now();
-      
+
       await usersRef.doc(auth.currentUser.uid).set({
         email: auth.currentUser.email,
         createdAt: createdAtStamp,
@@ -80,11 +81,31 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log("here again");
+      
       if (user) {
-        console.log("signed in")
+        console.log("signed in");
       } else {
-        console.log("signed out")
-        navigate("/login");
+        console.log("signed out");
+        setCurrentPage("Unchain");
+
+        switch (location.pathname) {
+          case "/":
+            navigate("/login");
+            break;
+          case "/login":
+            navigate("/login");
+            break;
+          case "/signup":
+            navigate("/signup");
+            break;
+          case "/forgot-password":
+            navigate("/forgot-password");
+            break;
+          default:
+            navigate("/");
+        }
+
       }
       setCurrentUser(user);
       setDataObj({});

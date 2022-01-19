@@ -4,7 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const BottomNav = () => {
   const navigateTo = useNavigate();
-  const { setCurrentPage } = useAuth();
+  const { setCurrentPage, currentPage } = useAuth();
 
   const handlePanic = () => {
     const url =
@@ -27,11 +27,13 @@ const BottomNav = () => {
     <div className="bottomButtons">
       <div className="home bottomButtonContainer">
         <button
+          className={`bottomButton ${
+            currentPage.toLowerCase() === "unchain" ? "active" : null
+          }`}
           onClick={() => {
             setCurrentPage("Unchain");
             navigateTo("/");
           }}
-          className="bottomButton"
         >
           <i className="fas fa-home"></i>
           <h1 className="bottomButtonText">Home</h1>
@@ -39,17 +41,19 @@ const BottomNav = () => {
       </div>
       <div className="ranks bottomButtonContainer">
         <button
+          className={`bottomButton ${
+            currentPage.toLowerCase() === "my rank" ? "active" : null
+          }`}
           onClick={() => {
             setCurrentPage("My Rank");
             navigateTo("/rank");
           }}
-          className="bottomButton"
         >
           <i className="fas fa-star"></i>
-          <h1 className="bottomButtonText">My Rank</h1>
+          <h1 className="bottomButtonText">Rank</h1>
         </button>
       </div>
-      <div style={{display: "none"}} className="panic bottomButtonContainer">
+      <div style={{ display: "none" }} className="panic bottomButtonContainer">
         <button onClick={() => handlePanic()} className="bottomButton">
           <i className="fas fa-user-shield"></i>
           <h1 className="bottomButtonText">Panic</h1>
@@ -57,11 +61,13 @@ const BottomNav = () => {
       </div>
       <div className="history bottomButtonContainer">
         <button
+          className={`bottomButton ${
+            currentPage.toLowerCase() === "history" ? "active" : null
+          }`}
           onClick={() => {
             setCurrentPage("History");
             navigateTo("/history");
           }}
-          className="bottomButton"
         >
           <i className="fas fa-history"></i>
           <h1 className="bottomButtonText">History</h1>

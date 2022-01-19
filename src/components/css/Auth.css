@@ -17,7 +17,6 @@ html {
   max-width: 800px;
   border-radius: var(--borderRadius);
   padding: 10px;
-
   display: flex;
   flex-direction: column;
 }
@@ -45,7 +44,7 @@ form {
 }
 
 .formGroup > p {
-  margin-bottom: 5px;
+  margin-bottom: 30px;
   font-size: 1.15rem;
 }
 
@@ -53,9 +52,11 @@ form {
   height: 40px;
   padding: 0 10px;
   border: none;
-  border: 1px solid rgb(202, 209, 215);
+  border: 1px solid var(--input-border);
   border-radius: var(--borderRadius);
   outline: none;
+  background: var(--input);
+  color: var(--color-primary);
 }
 
 .signUpSubmit,
@@ -64,25 +65,11 @@ form {
   height: 60px;
   border: none;
   border-radius: var(--borderRadius);
-  color: white;
+  color: var(--opposing-text);
   font-size: 1.15rem;
-  background: var(--color-primary);
-  /* background: linear-gradient(-45deg, #9b533d, #be3a6d, #2a8aad, #2faa8d); */
-  background-size: 400% 400%;
-  animation: gradient 8s ease infinite;
+  background: var(--color-tertiary); 
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 .signUpSubmit:hover,
 .logInSubmit:hover {
@@ -95,32 +82,28 @@ form {
 .have-account-link {
   color: inherit;
   text-decoration: inherit;
+  background: none;
+}
+
+.have-account-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  background: none;
 }
 
 .haveAccount {
   text-align: center;
+  color: var(--color-primary);
 }
 
 .haveAccount:hover {
   cursor: pointer;
-  color: var(--color-primary);
-  opacity: 0.4;
-  background-size: 400% 400%;
-  animation: text-gradient 8s ease infinite;
+  color: var(--color-tertiary);
+  background: none;
+  text-decoration: underline;
 }
 
 .forgotPass {
   margin-top: 20px;
 }
 
-@keyframes text-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}

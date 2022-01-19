@@ -91,15 +91,6 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  const loadingJSX = (
-    <div className="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
-
   const value = {
     currentUser,
     signup,
@@ -109,7 +100,6 @@ export function AuthProvider({ children }) {
     resetPassword,
     saveUser,
     dataObj,
-    loadingJSX,
     loading,
     setLoading,
     setCurrentPage,

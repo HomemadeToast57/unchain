@@ -115,7 +115,7 @@ const Ranks = () => {
       <div className="ranksContainer">
         {ranks.map((rank) => (
           <div
-            className={"rank " + (currentRank === rank.id ? "currentRank" : "")}
+            className={"rank " + (currentRank === rank.id ? "currentRank " : " ") + (rank.id === 17 ? "lastRank" : "")}
             key={rank.id}
           >
             <h1 className="rankName">{rank.name}</h1>

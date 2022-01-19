@@ -1,51 +1,52 @@
 .ranksDiv {
-  width: 80vw;
-  height: calc(100vh - 160px);
-  margin: 90px auto auto auto;
-  
-
+  width: 100%;
+  height: 100%;
+  margin: 120px auto auto auto;
 }
 
 .ranksContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    overflow: scroll;
-    margin-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
 .rank {
-    height: 100px;
-    width: 70%;
-    background: rgb(236, 236, 236);
-    margin-bottom: 30px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  height: 100px;
+  width: min(90%, 800px);
+  background: var(--color-secondary);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+
+.lastRank {
+  margin-bottom: 100px;
+}
 .currentRank {
-    border: 5px solid rgb(83, 163, 255);
+  border: 5px solid rgb(83, 163, 255);
 }
 
 .horizontalLine {
-    width: 60%;
-    height: 1px;
-    background: black;
-    margin: 10px 0;
+  width: 60%;
+  height: 1px;
+  background: var(--color-tertiary);
+  margin: 10px 0;
 }
 
 .rankName {
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--color-primary);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
 }
 
 .rankDays {
-    font-size: 1.2rem;
-    color: var(--color-primary);
-    font-weight: 400;
+  font-size: 1rem;
+  color: var(--color-tertiary);
+  font-weight: 500;
 }

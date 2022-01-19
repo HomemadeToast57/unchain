@@ -1,11 +1,10 @@
 import { useTime } from "../contexts/TimeContext";
-import { useAuth } from "../contexts/AuthContext";
+import Loading from "../components/js/Loading";
 
 const TimeLoader = ({ children }) => {
   const { elapsedTime } = useTime();
-  const { loadingJSX } = useAuth();
 
-  return elapsedTime ? children : loadingJSX;
+  return elapsedTime ? children : <Loading/>;
 };
 
 export default TimeLoader;

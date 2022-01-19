@@ -1,0 +1,22 @@
+[data-theme="dark"] {
+  --color-primary: #ececec;
+  --color-secondary: #0f1416;
+  --color-tertiary: #cacaca;
+  --input: #242424;
+  --input-border: none;
+  --background-color: #000000;
+  --timer-color: #0f1416;
+  --timer-fill-color: #0f1416;
+  --opposing-text: #242424;
+}
+
+[data-theme="light"] {
+  --color-primary: #242424;
+  --color-secondary: #ececec;
+  --color-tertiary: #303030;
+  --input-border: #cacaca;
+  --input: #ffffff;
+  --background-color: #ffffff;
+  --timer-color: #ececec;
+  --opposing-text: #ececec;
+}

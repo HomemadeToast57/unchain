@@ -1,0 +1,9 @@
+
+html {
+    background: var(--background-color);
+    overflow: hidden;
+}
+
+.preload * {
+  transition: none !important;
+}

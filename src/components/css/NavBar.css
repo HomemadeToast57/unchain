@@ -1,8 +1,3 @@
-.darkmode-layer,
-.darkmode-toggle {
-  z-index: 10;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -19,6 +14,22 @@ nav {
   top: 0;
   height: 80px;
   width: 100%;
+}
+
+nav ~ i {
+  font-size: 1.5rem;
+}
+
+.themeToggle {
+  border: none;
+  background: none;
+  color: var(--opposing-text);
+  padding: 7px 14px;
+}
+
+.themeToggle:hover {
+  background: var(opposing-text);
+  transition: 0.5s;
 }
 
 label.logo {
@@ -43,17 +54,19 @@ nav ul li {
   margin: 0 5px;
 }
 nav ul li a {
-  color: rgb(0, 0, 0);
+  color: var(--color-primary);
   font-size: 17px;
+  font-weight: 600;
   padding: 7px 13px;
   border-radius: 3px;
   text-transform: uppercase;
 }
-a.active,
+
 a:hover {
-  background: #ffffff;
+  background: var(opposing-text);
   transition: 0.5s;
 }
+
 .checkbtn {
   font-size: 30px;
   color: rgb(255, 255, 255);
@@ -64,7 +77,7 @@ a:hover {
   display: none;
 }
 .hamburger {
-  color: rgb(0, 0, 0);
+  color: var(--color-primary);
   font-size: 25px;
 }
 #check {
@@ -72,19 +85,25 @@ a:hover {
 }
 
 .userEmailNav {
-  color: var(--color-primary);
+  color: var(--opposing-text);
 }
 
-.logoutIconNav {
+.iconNav {
   font-size: 20px;
   line-height: 80px;
-  color: var(--color-primary);
+  color: var(--opposing-text);
+  cursor: pointer;
 }
 
 .timerContainer {
-    width: min(75vh, 80vw);
-  }
+  width: min(75vh, 80vw);
+  width: min(calc(var(--vh, 1vh) * 75), 80vw);
+}
 
+.userEmailNav,
+.logoutIconNav {
+  color: var(--opposing-text);
+}
 
 @media (max-width: 952px) {
   label.logo {
@@ -96,13 +115,6 @@ a:hover {
   }
 }
 @media (max-width: 858px) {
-
-  .userEmailNav,
-  .logoutIconNav {
-    color: var(--color-primary);
-    filter: invert(100%);
-  }
-
   .checkbtn {
     display: block;
   }
@@ -125,15 +137,11 @@ a:hover {
     line-height: 30px;
   }
   nav ul li a {
-    color: white;
+    color: var(--opposing-text);
     font-size: 20px;
     margin: 0;
   }
-  a:hover,
-  a.active {
-    background: none;
-    /* color: #0082e6; */
-  }
+
   #check:checked ~ ul {
     right: 0;
   }
@@ -141,8 +149,19 @@ a:hover {
 section {
   background-size: cover;
   height: calc(100vh - 80px);
+  height: calc(calc(var(--vh, 1vh) * 100) - 80px);
 }
 
-.darkmode-toggle {
-  background: var(--color-primary);
+@media screen and (min-width: 858px) {
+  .iconNav {
+    color: var(--color-primary);
+  }
+
+  .userEmailNav,
+  .logoutIconNav {
+    color: var(--color-primary);
+  }
+  .userEmailNav {
+    color: var(--color-primary);
+  }
 }

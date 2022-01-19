@@ -31,29 +31,31 @@ const History = () => {
   });
 
   const submit = () => {
-    confirmAlert({
-      title: "Confirm to reset history.",
-      message: "Are you sure to do this? This cannot be undone.",
-      buttons: [
-        {
-          label: "Yes",
-          onClick: () => resetHistory(),
-        },
-        {
-          label: "No",
-          onClick: () => {
-            return true;
+    if (dataObj.pastHistory.length !== 0) {
+      confirmAlert({
+        title: "Confirm to reset history.",
+        message: "Are you sure to do this? This cannot be undone.",
+        buttons: [
+          {
+            label: "Yes",
+            onClick: () => resetHistory(),
           },
-        },
-      ],
-    });
+          {
+            label: "No",
+            onClick: () => {
+              return true;
+            },
+          },
+        ],
+      });
+    }
   };
 
   return (
     <div className="historyDiv">
       <div className="historyContainer">
         <button
-          className="resetBtn"
+          className={"resetBtn " + (dataObj.pastHistory.length === 0 ? "disabledErase" : "")}
           id="resetHistory"
           style={{ marginTop: "20px" }}
           onClick={submit}
@@ -62,13 +64,13 @@ const History = () => {
         </button>
         {dataObj.pastHistory.length === 0 && (
           <h1 className="noHistory">
-            There is nothing in your history. When you press reset, your past
-            history will be listed here.
+            There is nothing in your history. When you reset your timer, your
+            past history will be listed here.
           </h1>
         )}
         {dataObj.pastHistory.map((item, index) => {
           return (
-            <div key={index} className="historyItem">
+            <div key={index} className={"historyItem " + (!dataObj.pastHistory[++index] ? "lastHistory" : "")}>
               <h1 className="timeSober">{displayTime(item.milliseconds)}</h1>
               <div className="horizontalLine"></div>
               <h2 className="timeFrame">

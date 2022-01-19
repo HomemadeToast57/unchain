@@ -1,6 +1,14 @@
 :root {
-    --color-primary: #242424;
     --timer-size: 600px;
     --signUpWidth: 600px;
     --borderRadius: 5px;
+}
+
+#root {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

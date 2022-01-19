@@ -1,50 +1,65 @@
-import React from 'react';
-import { useAuth } from '../../contexts/AuthContext';
-import '../css/NavBar.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useAuth } from "../../contexts/AuthContext";
+import "../css/NavBar.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const NavBar = () => {
   const { currentUser, logout, currentPage } = useAuth();
+  const { currentTheme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   async function handleLogout() {
     try {
       //set input with id of 'check' to false
-      document.getElementById('check').checked = false;
+      document.getElementById("check").checked = false;
       await logout();
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
-      console.log('error logging out: ', error);
+      console.log("error logging out: ", error);
     }
   }
 
   const goHome = () => {
-    navigate('/');
+    navigate("/");
+  };
+
+  const changeTheme = async (e) => {
+    //prevent reloading page
+    e.preventDefault();
+    return await toggleTheme();    
   };
 
   const jsx = (
     <nav>
-      <input type='checkbox' id='check' />
-      <label htmlFor='check' className='checkbtn'>
-        <i className='fas fa-bars hamburger'></i>
+      <input type="checkbox" id="check" />
+      <label htmlFor="check" className="checkbtn">
+        <i className="fas fa-bars hamburger"></i>
       </label>
-        <label onClick={goHome} className='logo'>{currentPage}</label>
+      <label onClick={goHome} className="logo">
+        {currentPage}
+      </label>
       <ul>
         {!currentUser && (
           <li>
-            <a href='/about'>About</a>
+            <a href="/about">About</a>
           </li>
         )}
+        <li>
+          <button className={"themeToggle"} onClick={changeTheme}>
+            <i className={`fas fa-${currentTheme === "light" ? "moon" : "sun"} iconNav`}></i>
+          </button>
+        </li>
         {currentUser && (
           <li>
-            <h1 className='userEmailNav'>{currentUser.email}</h1>
+            <h1 className="userEmailNav">{currentUser.email}</h1>
           </li>
         )}
         {currentUser && (
           <li onClick={handleLogout}>
-            <a href='#0'>
-              <i className='fas fa-sign-out-alt logoutIconNav'></i>
+            <a href="#0">
+              <i className="fas fa-sign-out-alt iconNav"></i>
             </a>
           </li>
         )}

@@ -7,16 +7,28 @@
     align-items: center;
 }
 
+/* all text in timerContents color black */
+.timerContents > * {
+    color: var(--color-primary);
+}
+.CircularProgressbar .CircularProgressbar-trail {
+    stroke: var(--timer-color);
+}
+
 .days {
     font-size: min(10vh, 10vw);
+    font-size: min(calc(var(--vh, 1vh) * 10), 10vw);
+    
 }
 
 .clock {
     font-size: min(5vh, 5vw);
+    font-size: min(calc(var(--vh, 1vh) * 5), 5vw);
 }
 
 .sobriety {
     font-size: min(3vh, 3vw);
+    font-size: min(calc(var(--vh, 1vh) * 3), 3vw);
 }
 
 .chain {

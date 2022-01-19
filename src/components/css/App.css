@@ -7,6 +7,7 @@ html,body
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
+    transition: all .2s ease;
 }
 
 * {
@@ -15,9 +16,6 @@ html,body
   font-size: 12px;
 }
 
-html {
-  background-color: white;
-}
 
 .app {
   display: flex;
@@ -35,6 +33,7 @@ html {
 
   .app {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100vw;
     display: flex;
     justify-content: center;

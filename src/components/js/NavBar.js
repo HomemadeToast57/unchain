@@ -7,7 +7,7 @@ import { useTheme } from "../../contexts/ThemeContext";
 
 const NavBar = () => {
   const { currentUser, logout, currentPage } = useAuth();
-  const { currentTheme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -48,7 +48,7 @@ const NavBar = () => {
         )}
         <li>
           <button className={"themeToggle"} onClick={changeTheme}>
-            <i className={`fas fa-${currentTheme === "light" ? "moon" : "sun"} iconNav`}></i>
+            <i className={`fas fa-${theme === "light" ? "moon" : "sun"} iconNav`}></i>
           </button>
         </li>
         {currentUser && (

@@ -60,3 +60,9 @@
   padding: 20px;
   border-radius: 10px;
 }
+
+@media screen and (min-width: 858px) {
+  .lastHistory {
+    margin-bottom: 130px;
+  }
+}

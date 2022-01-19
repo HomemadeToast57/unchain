@@ -23,7 +23,6 @@
   justify-content: center;
 }
 
-
 .lastRank {
   margin-bottom: 100px;
 }
@@ -49,4 +48,10 @@
   font-size: 1rem;
   color: var(--color-tertiary);
   font-weight: 500;
+}
+
+@media screen and (min-width: 858px) {
+  .lastRank {
+    margin-bottom: 130px;
+  }
 }

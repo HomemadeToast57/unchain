@@ -22,6 +22,7 @@ const NavBar = () => {
   }
 
   const goHome = () => {
+    setCurrentPage("Unchain");
     if (currentUser) {
       navigate("/");
     } else {

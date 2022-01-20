@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const BottomNav = () => {
   const navigateTo = useNavigate();
-  const { setCurrentPage, currentPage } = useAuth();
+  const { setCurrentPage, currentPage, dataObj } = useAuth();
+  const [showPanic, setShowPanic] = useState(false);
+
+  useEffect(() => {
+    if (dataObj.addictionType === "pornography") {
+      return setShowPanic(true);
+    } else {
+      return setShowPanic(false);
+    }
+  }, [dataObj, dataObj.addictionType]);
 
   const handlePanic = () => {
     const url =
@@ -53,12 +62,14 @@ const BottomNav = () => {
           <h1 className="bottomButtonText">Rank</h1>
         </button>
       </div>
-      <div style={{ display: "none" }} className="panic bottomButtonContainer">
-        <button onClick={() => handlePanic()} className="bottomButton">
-          <i className="fas fa-user-shield"></i>
-          <h1 className="bottomButtonText">Panic</h1>
-        </button>
-      </div>
+      {showPanic && (
+        <div className="panic bottomButtonContainer">
+          <button onClick={() => handlePanic()} className="bottomButton">
+            <i className="fas fa-user-shield"></i>
+            <h1 className="bottomButtonText">Panic</h1>
+          </button>
+        </div>
+      )}
       <div className="history bottomButtonContainer">
         <button
           className={`bottomButton ${

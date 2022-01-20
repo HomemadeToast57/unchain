@@ -4,6 +4,7 @@ import firebase from "firebase/compat/app";
 import "../css/Settings.css";
 import moment from "moment";
 import { useTime } from "../../contexts/TimeContext";
+import { useNavigate } from "react-router-dom";
 
 moment().format();
 
@@ -17,6 +18,7 @@ const Settings = () => {
   const [timeStartISO, setTimeStartISO] = useState(
     timeStart.substring(0, timeStart.length - 9)
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentPage("Settings");
@@ -31,7 +33,7 @@ const Settings = () => {
   useEffect(() => {
     const getMaxTime = () => {
       //get time from 5 min ago to DOMString
-      let time = moment().subtract(3, "minutes").format();
+      let time = moment().format();
       let timeISO = time.substring(0, time.length - 9);
 
       return timeISO;
@@ -103,10 +105,13 @@ const Settings = () => {
 
   const saveSettings = async (e) => {
     e.preventDefault();
+
     if (Object.keys(settingsObj).length > 0) {
       await updateUser(settingsObj);
       await setSettingsObj({});
     }
+    await setCurrentPage("Unchain");
+    return navigate("/");
   };
 
   return (

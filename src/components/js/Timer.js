@@ -36,7 +36,7 @@ const Timer = () => {
           </h1>
           <h2 className="clock">{timeDisplay}</h2>
 
-          <h3 className="sobriety">of sobriety</h3>
+          <h3 className="sobriety">of freedom</h3>
 
         </div>
       </CircularProgressbarWithChildren>

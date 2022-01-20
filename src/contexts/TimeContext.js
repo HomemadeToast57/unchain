@@ -108,6 +108,7 @@ export const TimeProvider = ({ children }) => {
         .update({
           ...settingsObj,
         });
+      console.log("🌪");
     } catch (error) {
       console.log(error);
     }
@@ -123,8 +124,6 @@ export const TimeProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-
-    console.log("settings saved!");
   };
 
   const resetHistory = async () => {

@@ -14,6 +14,9 @@ import TimeLoader from "../../loaders/TimeLoader";
 import NavBar from "./NavBar";
 import History from "./History";
 import Ranks from "./Ranks";
+import About from "./About";
+import PageNotFound from "./PageNotFound";
+import Settings from "./Settings";
 
 function App() {
   return (
@@ -60,6 +63,18 @@ function App() {
               }
             />
             <Route
+              path="/settings"
+              element={
+                <UserDataLoader>
+                  <TimeProvider>
+                    <TimeLoader>
+                      <Settings />
+                    </TimeLoader>
+                  </TimeProvider>
+                </UserDataLoader>
+              }
+            />
+            <Route
               path="/signup"
               element={
                 <AuthRoute>
@@ -75,8 +90,16 @@ function App() {
                 </AuthRoute>
               }
             />
+            <Route
+              path="/about"
+              element={
+                <AuthRoute>
+                  <About />
+                </AuthRoute>
+              }
+            />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="*" element={<h1>Page Not Found: Error 404</h1>} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </AuthProvider>
       </ThemeProvider>

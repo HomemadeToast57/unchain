@@ -4,10 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 
 const AuthRoute = (props) => {
   const { currentUser } = useAuth();
-  const user = currentUser;
-
-  console.log("AuthRoute");
-  
+  const user = currentUser;  
 
   return !user ? props.children : <Navigate to="/" />;
 };

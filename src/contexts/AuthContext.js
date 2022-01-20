@@ -4,6 +4,7 @@ import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { getDoc } from "@firebase/firestore";
 import { useNavigate, useLocation } from "react-router-dom";
+import BottomNav from "../components/js/BottomNav";
 
 const AuthContext = React.createContext();
 
@@ -56,6 +57,7 @@ export function AuthProvider({ children }) {
         createdAt: createdAtStamp,
         timeStart: timeStartStamp,
         pastHistory: [],
+        addictionType: "no-preference",
       });
     };
 
@@ -81,7 +83,6 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      console.log("here again");
       
       if (user) {
         console.log("signed in");
@@ -103,7 +104,7 @@ export function AuthProvider({ children }) {
             navigate("/forgot-password");
             break;
           default:
-            navigate("/");
+            navigate("/login");
         }
 
       }
@@ -133,6 +134,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
+      {currentUser && <BottomNav />}
       {!loading && children}
     </AuthContext.Provider>
   );

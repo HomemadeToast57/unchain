@@ -2,11 +2,11 @@ import React from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import "../css/NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
 
 const NavBar = () => {
-  const { currentUser, logout, currentPage } = useAuth();
+  const { currentUser, logout, currentPage, setCurrentPage } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
@@ -29,6 +29,12 @@ const NavBar = () => {
     }
   };
 
+  const goSettings = () => {
+    document.getElementById("check").checked = false;
+    setCurrentPage("Settings");
+    navigate("/settings");
+  }
+
   const changeTheme = async (e) => {
     //prevent reloading page
     e.preventDefault();
@@ -48,7 +54,9 @@ const NavBar = () => {
         {!currentUser && (
           <li>
             <div className="navElement">
-              <a href="/about">About</a>
+              <Link className="navLink" to={"/about"}>
+                About
+              </Link>
             </div>
           </li>
         )}
@@ -67,6 +75,15 @@ const NavBar = () => {
           <li>
             <div className="navElement">
               <h1 className="userEmailNav">{currentUser.email}</h1>
+            </div>
+          </li>
+        )}
+        {currentUser && (
+          <li>
+            <div className="navElement">
+              <button onClick={goSettings} className="navLink" to={"/settings"}>
+                Settings
+              </button>
             </div>
           </li>
         )}

@@ -93,7 +93,8 @@ form {
   cursor: pointer;
   /* background-color: #0d6efd; */
   /* gradient background */
-  opacity: 0.8;
+  /* make button larger */
+  background-color: var(--color-primary);
 }
 
 

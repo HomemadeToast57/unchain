@@ -17,11 +17,6 @@ export const TimeProvider = ({ children }) => {
   const [timeDisplay, setTimeDisplay] = useState("");
   const [timeObj, setTimeObj] = useState({});
 
-  // useEffect(() => {
-  //   setObjTime(dataObj.timeStart.toJSON().seconds);
-
-  // }, [dataObj.timeStart]);
-
   useEffect(() => {
     if (objTime) {
       const interval = setInterval(async () => {
@@ -31,14 +26,6 @@ export const TimeProvider = ({ children }) => {
       return () => clearInterval(interval);
     }
   }, [objTime]);
-
-  useEffect(() => {
-    //handle change in objTime
-  }, [objTime]);
-
-  useEffect(() => {
-    //change circular progress bar
-  }, [elapsedTime]);
 
   useEffect(() => {
     const display = async () => {
@@ -113,6 +100,33 @@ export const TimeProvider = ({ children }) => {
     console.log("reset time");
   };
 
+  const updateUser = async (settingsObj) => {
+    try {
+      await db
+        .collection("users")
+        .doc(`${currentUser.uid}`)
+        .update({
+          ...settingsObj,
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      if (settingsObj.timeStart) {
+        await setObjTime(settingsObj.timeStart.toJSON().seconds);
+        dataObj.timeStart = settingsObj.timeStart;
+      }
+      if (settingsObj.addictionType) {
+        dataObj.addictionType = settingsObj.addictionType;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    console.log("settings saved!");
+  };
+
   const resetHistory = async () => {
     await db.collection("users").doc(`${currentUser.uid}`).update({
       pastHistory: [],
@@ -122,9 +136,18 @@ export const TimeProvider = ({ children }) => {
       ...dataObj,
       pastHistory: [],
     });
+
+    await setObjTime(dataObj.timeStart.toJSON().seconds);
   };
 
-  const values = { elapsedTime, timeDisplay, saveTime, timeObj, resetHistory };
+  const values = {
+    elapsedTime,
+    timeDisplay,
+    saveTime,
+    timeObj,
+    resetHistory,
+    updateUser,
+  };
 
   //return provider
   return <TimeContext.Provider value={values}>{children}</TimeContext.Provider>;

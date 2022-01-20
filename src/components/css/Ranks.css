@@ -1,5 +1,5 @@
 .ranksDiv {
-  width: min(var(--signUpWidth), 80%);
+  width: min(var(--listWidth), 80%);
   height: 100%;
   margin: 120px auto auto auto;
   display: flex;

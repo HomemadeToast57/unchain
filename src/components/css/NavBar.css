@@ -31,6 +31,18 @@ nav ~ i {
   border-radius: var(--borderRadius);
 }
 
+.navLink {
+  border-radius: var(--borderRadius);
+  border: none;
+  background: none;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  padding: 7px 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navLink:hover,
 .navButton:hover {
   background: var(--background-color);
   transition: 0.5s;
@@ -45,9 +57,6 @@ label.logo {
   cursor: pointer;
 }
 
-.logoLink:hover {
-  cursor: pointer;
-}
 nav ul {
   float: right;
   /* margin-right: 20px; */
@@ -57,13 +66,16 @@ nav ul li {
   line-height: 80px;
   margin: 0 5px;
 }
+
+li {
+  padding: 0 0 0 13px;
+}
 nav ul li a {
   color: var(--color-primary);
   font-size: 17px;
   font-weight: 600;
-  padding: 7px 13px;
   border-radius: 3px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 a:hover {
@@ -90,6 +102,7 @@ a:hover {
 
 .userEmailNav {
   color: var(--color-primary);
+  font-size: 1.2rem;
 }
 
 .iconNav {
@@ -137,7 +150,7 @@ a:hover {
   }
   nav ul li {
     display: block;
-    margin: 20px 60px;
+    margin: 20px 8px;
     line-height: 30px;
   }
   nav ul li a {
@@ -146,6 +159,9 @@ a:hover {
     margin: 0;
   }
 
+  .navElement {
+    width: 100%;
+  }
   #check:checked ~ ul {
     right: 0;
   }
@@ -161,6 +177,10 @@ section {
     color: var(--color-primary);
   }
 
+  ul {
+    margin-right: 10px;
+  }
+
   .userEmailNav,
   .logoutIconNav {
     color: var(--color-primary);
@@ -169,6 +189,7 @@ section {
     color: var(--color-primary);
   }
 
+  .navLink:hover,
   .navButton:hover {
     background: var(--color-secondary);
     transition: 0.5s;
@@ -179,5 +200,15 @@ section {
   nav {
     background: var(--background-color);
     border-bottom: 3px solid var(--color-secondary);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  ul {
+    width: 100%;
+  }
+
+  li {
+    padding: 0;
   }
 }

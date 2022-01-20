@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Loading from "../components/js/Loading";
-import BottomNav from "../components/js/BottomNav";
 
 const UserDataLoader = ({ children }) => {
   const { currentUser, dataObj } = useAuth();
@@ -21,16 +20,10 @@ const UserDataLoader = ({ children }) => {
     // eslint-disable-next-line
   }, [currentUser, dataObj.timeStart]);
 
+
+
   return (
-    <div className="pageContainer">
-      {ready ? (
-        <>
-          <BottomNav /> {children}
-        </>
-      ) : (
-        <Loading />
-      )}
-    </div>
+    <div className="pageContainer">{ready ? children : <Loading />}</div>
   );
 };
 

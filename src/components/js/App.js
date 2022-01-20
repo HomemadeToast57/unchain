@@ -90,14 +90,7 @@ function App() {
                 </AuthRoute>
               }
             />
-            <Route
-              path="/about"
-              element={
-                <AuthRoute>
-                  <About />
-                </AuthRoute>
-              }
-            />
+            <Route path="/about" element={<About />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

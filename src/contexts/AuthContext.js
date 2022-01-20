@@ -3,8 +3,8 @@ import { auth } from "../firebase";
 import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { getDoc } from "@firebase/firestore";
-import { useNavigate, useLocation } from "react-router-dom";
 import BottomNav from "../components/js/BottomNav";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -16,11 +16,13 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
   const [dataObj, setDataObj] = useState({});
-  const [currentPage, setCurrentPage] = useState("Unchain");
+  const [currentPage, setCurrentPage] = useState({
+    page: "",
+    title: "Unchain",
+  });
   const db = firebase.firestore();
   const usersRef = db.collection("users");
   const navigate = useNavigate();
-  const location = useLocation();
 
   function signup(email, password) {
     const register = async () => {
@@ -35,9 +37,10 @@ export function AuthProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password);
   }
 
-  function logout() {
-    return auth.signOut();
-  }
+  const logout = async () => {
+    await auth.signOut();
+    navigate("/login");
+  };
 
   function resetPassword(email) {
     return auth.sendPasswordResetEmail(email);
@@ -83,30 +86,11 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      
       if (user) {
         console.log("signed in");
       } else {
         console.log("signed out");
-        setCurrentPage("Unchain");
-
-        switch (location.pathname) {
-          case "/":
-            navigate("/login");
-            break;
-          case "/login":
-            navigate("/login");
-            break;
-          case "/signup":
-            navigate("/signup");
-            break;
-          case "/forgot-password":
-            navigate("/forgot-password");
-            break;
-          default:
-            navigate("/login");
-        }
-
+        navigate("/login");
       }
       setCurrentUser(user);
       setDataObj({});

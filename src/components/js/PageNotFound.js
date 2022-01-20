@@ -5,7 +5,10 @@ const PageNotFound = () => {
 const {setCurrentPage} = useAuth();
 
     useEffect(() => {
-        setCurrentPage("Error");
+        setCurrentPage({
+            page: "PageNotFound",
+            title: "Page Not Found",
+        });
     }, [setCurrentPage]);
 
 

@@ -44,7 +44,7 @@ const Login = () => {
       )}
       <div className="authDiv">
         <h1 className="authTitle">Log In</h1>
-        <form onSubmit={handleSubmit}>
+        <form className="authForm" onSubmit={handleSubmit}>
           <div className="inputs">
             <div id="email" className="formGroup">
               <p className="emailLabel">Email</p>

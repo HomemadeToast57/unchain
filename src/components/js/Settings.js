@@ -20,9 +20,6 @@ const Settings = () => {
   );
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setCurrentPage("Settings");
-  }, [setCurrentPage]);
 
   useEffect(() => {
     setTimeStart(moment(dataObj.timeStart.toJSON().seconds * 1000).format());
@@ -110,48 +107,65 @@ const Settings = () => {
       await updateUser(settingsObj);
       await setSettingsObj({});
     }
-    await setCurrentPage("Unchain");
+    await setCurrentPage({
+      page: "home",
+      title: "Unchain",
+    });
     return navigate("/");
   };
 
   return (
     <div className="settings">
-      <form onSubmit={saveSettings}>
-        <div className="settings-container">
-          <div className="settings-container-item">
+      <div className="settingsDiv">
+        <form className="settingsForm" onSubmit={saveSettings}>
+          <div className="settingsItem">
             {/* dropdown input */}
-            <label htmlFor="addictionType">Addiction Type: </label>
+            <label className="settingLabel" htmlFor="addictionType">
+              Addiction Type:{" "}
+            </label>
             <select
+              className="dropdown settingsInput"
               onChange={updateSettingsObj}
               id="addictionType"
               name="addictionType"
             >
               <option value="no-preference">Prefer Not To Say</option>
               <option value="alcohol">Alcohol</option>
-              <option value="drug">Drug</option>
               <option value="pornography">Porn</option>
+              <option value="drug">Drug</option>
               <option value="sex">Sex</option>
+              <option value="nicotine">Nicotine</option>
+              <option value="gambling">Gambling</option>
             </select>
           </div>
-          <div className="settings-container-item">
+          <div className="settingsItem">
             {/* datetime picker */}
-            <label htmlFor="timeStart">Start date and time:</label>
+            <label className="settingLabel" htmlFor="timeStart">
+              Start date and time:
+            </label>
 
             <input
+              className="settingsInput"
               onChange={updateSettingsObj}
               type="datetime-local"
               id="timeStart"
               name="timeStart"
             ></input>
           </div>
-        </div>
-        <button type="submit">Save</button>
-        {Object.keys(settingsObj).length > 0 && (
-          <button id="undo-btn" onClick={resetForm} type="button">
-            Undo
-          </button>
-        )}
-      </form>
+          <div
+            className={`settingsButtonsContainer ${
+              Object.keys(settingsObj).length > 0
+                ? "changesMade" : ""}`}
+          >
+            <button type="submit">Save</button>
+            {Object.keys(settingsObj).length > 0 && (
+              <button id="undo-btn" onClick={resetForm} type="button">
+                Undo
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

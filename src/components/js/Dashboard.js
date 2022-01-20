@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTime } from "../../contexts/TimeContext";
+import { useAuth } from "../../contexts/AuthContext";
 import "../css/Dashboard.css";
 import Timer from "./Timer";
 import { confirmAlert } from "react-confirm-alert";
@@ -11,10 +12,18 @@ const Dashboard = () => {
   //   quotes[Math.floor(Math.random() * quotes.length)]
   // );
   const { saveTime } = useTime();
+  const { setCurrentPage } = useAuth();
 
   // function handleAlertClose() {
   //   setError("");
   // }
+
+  useEffect(() => {
+    setCurrentPage({
+      page: "home",
+      title: "Unchain",
+    });
+  }, [setCurrentPage]);
 
   const submit = () => {
     confirmAlert({

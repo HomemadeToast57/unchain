@@ -64,7 +64,7 @@ const SignUp = () => {
         )}
         <div className="authDiv">
           <h1 className="authTitle">Sign Up</h1>
-          <form onSubmit={handleSubmit}>
+          <form className="authForm" onSubmit={handleSubmit}>
             <div className="inputs">
               <div id="email" className="formGroup">
                 <p className="emailLabel" htmlFor="email">

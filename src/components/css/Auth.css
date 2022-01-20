@@ -26,7 +26,7 @@ html {
   text-align: left;
 }
 
-form {
+.authForm {
   display: flex;
   flex-direction: column;
   align-items: center;

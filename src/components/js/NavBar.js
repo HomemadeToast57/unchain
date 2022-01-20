@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import "../css/NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -10,19 +10,27 @@ const NavBar = () => {
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    let nav = document.getElementById("appNav");
+    nav.setAttribute("page", currentPage.page);
+  }, [currentPage]);
+
   async function handleLogout() {
     try {
       //set input with id of 'check' to false
       document.getElementById("check").checked = false;
       await logout();
-      navigate("/login");
+      // navigate("/login");
     } catch (error) {
       console.log("error logging out: ", error);
     }
   }
 
   const goHome = () => {
-    setCurrentPage("Unchain");
+    setCurrentPage({
+      page: "home",
+      title: "Unchain",
+    });
     if (currentUser) {
       navigate("/");
     } else {
@@ -32,9 +40,12 @@ const NavBar = () => {
 
   const goSettings = () => {
     document.getElementById("check").checked = false;
-    setCurrentPage("Settings");
+    setCurrentPage({
+      page: "settings",
+      title: "Settings",
+    });
     navigate("/settings");
-  }
+  };
 
   const changeTheme = async (e) => {
     //prevent reloading page
@@ -43,13 +54,13 @@ const NavBar = () => {
   };
 
   const jsx = (
-    <nav>
+    <nav className={`${currentPage.page}Page`} id="appNav">
       <input type="checkbox" id="check" />
       <label htmlFor="check" className="checkbtn">
         <i className="fas fa-bars hamburger"></i>
       </label>
       <label onClick={goHome} className="logo">
-        {currentPage}
+        {currentPage.title}
       </label>
       <ul>
         {!currentUser && (

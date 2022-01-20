@@ -51,10 +51,12 @@
 }
 
 .noHistory {
+  height: 100px;
+  width: min(var(--listWidth), 80%);
+  background: var(--color-secondary);
   font-size: 1rem;
   color: var(--color-primary);
   text-align: center;
-  width: 70%;
   height: max-content;
   margin: auto;
   padding: 20px;

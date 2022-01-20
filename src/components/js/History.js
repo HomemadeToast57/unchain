@@ -6,8 +6,15 @@ import { useTime } from "../../contexts/TimeContext";
 import "../css/History.css";
 
 const History = () => {
-  const { dataObj } = useAuth();
+  const { dataObj, setCurrentPage } = useAuth();
   const { resetHistory } = useTime();
+
+  useEffect(() => {
+    setCurrentPage({
+      page: "history",
+      title: "History",
+    });
+  }, [setCurrentPage]);
 
   const displayTime = (sec) => {
     let seconds = Number(Math.floor(sec / 1000));
@@ -55,7 +62,10 @@ const History = () => {
     <div className="historyDiv">
       <div className="historyContainer">
         <button
-          className={"resetBtn " + (dataObj.pastHistory.length === 0 ? "disabledErase" : "")}
+          className={
+            "resetBtn " +
+            (dataObj.pastHistory.length === 0 ? "disabledErase" : "")
+          }
           id="resetHistory"
           style={{ marginTop: "20px" }}
           onClick={submit}
@@ -70,7 +80,13 @@ const History = () => {
         )}
         {dataObj.pastHistory.map((item, index) => {
           return (
-            <div key={index} className={"historyItem " + (!dataObj.pastHistory[++index] ? "lastHistory" : "")}>
+            <div
+              key={index}
+              className={
+                "historyItem " +
+                (!dataObj.pastHistory[++index] ? "lastHistory" : "")
+              }
+            >
               <h1 className="timeSober">{displayTime(item.milliseconds)}</h1>
               <div className="horizontalLine"></div>
               <h2 className="timeFrame">

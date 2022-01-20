@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import "firebase/compat/firestore";
 import "../components/css/Theme.css";
+
 const ThemeContext = React.createContext();
 
 export function useTheme() {

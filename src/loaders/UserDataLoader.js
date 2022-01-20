@@ -6,6 +6,7 @@ const UserDataLoader = ({ children }) => {
   const { currentUser, dataObj } = useAuth();
   const [ready, setReady] = useState(false);
 
+
   /* ----------------------------- Check If Ready ----------------------------- */
   useEffect(() => {
     if (currentUser) {

@@ -1,10 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Ranks.css";
 import { useTime } from "../../contexts/TimeContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Ranks = () => {
-  const [currentRank, setCurrentRank] = React.useState();
+  const [currentRank, setCurrentRank] = useState();
   const { timeObj } = useTime();
+  const { setCurrentPage } = useAuth();
+
+  useEffect(() => {
+    setCurrentPage({
+      page: "rank",
+      title: "My Rank",
+    });
+  }, [setCurrentPage]);
 
   const ranks = [
     {
@@ -109,13 +118,17 @@ const Ranks = () => {
       }
     }
   });
-  
+
   return (
     <div className="ranksDiv">
       <div className="ranksContainer">
         {ranks.map((rank) => (
           <div
-            className={"rank " + (currentRank === rank.id ? "currentRank " : " ") + (rank.id === 17 ? "lastRank" : "")}
+            className={
+              "rank " +
+              (currentRank === rank.id ? "currentRank " : " ") +
+              (rank.id === 17 ? "lastRank" : "")
+            }
             key={rank.id}
           >
             <h1 className="rankName">{rank.name}</h1>

@@ -1,35 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const BottomNav = () => {
   const navigateTo = useNavigate();
   const { setCurrentPage, currentPage, dataObj } = useAuth();
-  const [showPanic, setShowPanic] = useState(false);
 
-  useEffect(() => {
-    if (dataObj.addictionType === "pornography") {
-      return setShowPanic(true);
-    } else {
-      return setShowPanic(false);
-    }
-  }, [dataObj, dataObj.addictionType]);
+  const handlePanic = async () => {
+    const panicLinks = {
+      pornography:
+        "https://emergency.nofap.com/director.php?cat=em&religious=false", //Thank you Jack Fischer for this amazing tool! You are helping so many people out there!
+      alcohol: [
+        "https://www.youtube.com/watch?v=6EghiY_s2ts",
+        "https://www.youtube.com/watch?v=bOQxOthLSCA",
+        "https://www.youtube.com/watch?v=Xpl9Egv861U",
+        "https://www.youtube.com/watch?v=b2VN9cgWYZg",
+      ],
+      default: "https://www.samhsa.gov/find-help/national-helpline",
+    };
 
-  const handlePanic = () => {
-    const url =
-      "https://emergency.nofap.com/director.php?cat=em&religious=false"; //Thank you Jack Fischer for this amazing tool! You are helping so many people out there!
-    //fetch text from url
-    fetch(url).then((response) => {
-      //fetch text from url
-      if (response.ok) {
-        response.text().then((text) => {
-          //if text is not empty, then parse it and set currentPage to the text
-          if (text !== "") {
-            window.open(text, "_blank");
+    switch (dataObj.addictionType) {
+      case "pornography":
+      case "sex":
+        //fetch text from url
+        await fetch(panicLinks.pornography).then((response) => {
+          //fetch text from url
+          if (response.ok) {
+            response.text().then((text) => {
+              //if text is not empty, then parse it and set currentPage to the text
+              if (text !== "") {
+                window.open(text, "_blank");
+              }
+            });
           }
         });
-      }
-    });
+        break;
+      case "alcohol":
+        //pick random link from array
+        let randomLink =
+          panicLinks.alcohol[
+            Math.floor(Math.random() * panicLinks.alcohol.length)
+          ];
+        //go to random link
+        window.open(randomLink, "_blank");
+        break;
+      case "drug":
+      case "gambling":
+      case "nicotine":
+        window.open(panicLinks.default, "_blank");
+        break;
+      default:
+        window.open(panicLinks.default, "_blank");
+        break;
+    }
   };
 
   return (
@@ -37,10 +60,13 @@ const BottomNav = () => {
       <div className="home bottomButtonContainer">
         <button
           className={`bottomButton ${
-            currentPage.toLowerCase() === "unchain" ? "active" : null
+            currentPage.page === "home" ? "active" : null
           }`}
           onClick={() => {
-            setCurrentPage("Unchain");
+            setCurrentPage({
+              page: "home",
+              title: "Unchain",
+            });
             navigateTo("/");
           }}
         >
@@ -51,10 +77,13 @@ const BottomNav = () => {
       <div className="ranks bottomButtonContainer">
         <button
           className={`bottomButton ${
-            currentPage.toLowerCase() === "my rank" ? "active" : null
+            currentPage.page === "rank" ? "active" : null
           }`}
           onClick={() => {
-            setCurrentPage("My Rank");
+            setCurrentPage({
+              page: "rank",
+              title: "Ranks",
+            });
             navigateTo("/rank");
           }}
         >
@@ -62,21 +91,22 @@ const BottomNav = () => {
           <h1 className="bottomButtonText">Rank</h1>
         </button>
       </div>
-      {showPanic && (
-        <div className="panic bottomButtonContainer">
-          <button onClick={() => handlePanic()} className="bottomButton">
-            <i className="fas fa-user-shield"></i>
-            <h1 className="bottomButtonText">Panic</h1>
-          </button>
-        </div>
-      )}
+      <div className="panic bottomButtonContainer">
+        <button onClick={() => handlePanic()} className="bottomButton">
+          <i className="fas fa-user-shield"></i>
+          <h1 className="bottomButtonText">Panic</h1>
+        </button>
+      </div>
       <div className="history bottomButtonContainer">
         <button
           className={`bottomButton ${
-            currentPage.toLowerCase() === "history" ? "active" : null
+            currentPage.page === "history" ? "active" : null
           }`}
           onClick={() => {
-            setCurrentPage("History");
+            setCurrentPage({
+              page: "history",
+              title: "History",
+            });
             navigateTo("/history");
           }}
         >

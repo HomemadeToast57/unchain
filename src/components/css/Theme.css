@@ -9,6 +9,9 @@
   --timer-fill-color: #0f1416;
   --opposing-text: #242424;
   --opposing-text-secondary: #3c3c3c;
+  --bottomNav: #1e2122;
+  --shadow: rgba(37, 39, 41, 0.3);
+  --dashImg: url(../../assets/darkDash.png);
 }
 
 [data-theme="light"] {
@@ -21,4 +24,7 @@
   --timer-color: #ececec;
   --opposing-text: #ececec;
   --opposing-text-secondary: #cacaca;
+  --bottomNav: #d8d8d8;
+  --shadow: rgba(149, 157, 165, 0.2);
+  --dashImg: url(../../assets/lightDash.png);
 }

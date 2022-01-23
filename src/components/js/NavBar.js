@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import "../css/NavBar.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../contexts/ThemeContext";
 
 const NavBar = () => {
@@ -15,10 +15,14 @@ const NavBar = () => {
     nav.setAttribute("page", currentPage.page);
   }, [currentPage]);
 
+  const handleClick = () => {
+    document.getElementById("check").checked = false;
+  };
+    
+
   async function handleLogout() {
+    handleClick();
     try {
-      //set input with id of 'check' to false
-      document.getElementById("check").checked = false;
       await logout();
       // navigate("/login");
     } catch (error) {
@@ -39,7 +43,7 @@ const NavBar = () => {
   };
 
   const goSettings = () => {
-    document.getElementById("check").checked = false;
+    handleClick();
     setCurrentPage({
       page: "settings",
       title: "Settings",
@@ -63,7 +67,7 @@ const NavBar = () => {
         {currentPage.title}
       </label>
       <ul>
-        {!currentUser && (
+        {/* {!currentUser && (
           <li>
             <div className="navElement">
               <Link className="navLink" to={"/about"}>
@@ -71,10 +75,10 @@ const NavBar = () => {
               </Link>
             </div>
           </li>
-        )}
-        <li>
+        )} */}
+        <li className="navItem">
           <div className="navElement">
-            <button className={"navButton"} onClick={changeTheme}>
+            <button title="Change Theme" className={"navButton"} onClick={changeTheme}>
               <i
                 className={`fas fa-${
                   theme === "light" ? "moon" : "sun"
@@ -84,14 +88,14 @@ const NavBar = () => {
           </div>
         </li>
         {currentUser && (
-          <li>
+          <li className="navItem">
             <div className="navElement">
               <h1 className="userEmailNav">{currentUser.email}</h1>
             </div>
           </li>
         )}
         {currentUser && (
-          <li>
+          <li className="navItem">
             <div className="navElement">
               <button onClick={goSettings} className="navLink" to={"/settings"}>
                 Settings
@@ -99,10 +103,17 @@ const NavBar = () => {
             </div>
           </li>
         )}
+        <li className="navItem">
+          <div className="navElement">
+            <button title="About Unchain" className={"navButton"} onClick={() => {handleClick(); navigate("/about");}}>
+              <i className="fas fa-info iconNav"></i>
+            </button>
+          </div>
+        </li>
         {currentUser && (
-          <li>
+          <li className="navItem">
             <div className="navElement">
-              <button className={"navButton"} onClick={handleLogout}>
+              <button title="Log Out" className={"navButton"} onClick={handleLogout}>
                 <i className="fas fa-sign-out-alt iconNav"></i>
               </button>
             </div>

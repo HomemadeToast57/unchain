@@ -4,7 +4,7 @@ import "firebase/compat/firestore";
 import firebase from "firebase/compat/app";
 import { getDoc } from "@firebase/firestore";
 import BottomNav from "../components/js/BottomNav";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
 
@@ -23,6 +23,7 @@ export function AuthProvider({ children }) {
   const db = firebase.firestore();
   const usersRef = db.collection("users");
   const navigate = useNavigate();
+  const location = useLocation();
 
   function signup(email, password) {
     const register = async () => {
@@ -90,7 +91,11 @@ export function AuthProvider({ children }) {
         console.log("signed in");
       } else {
         console.log("signed out");
-        navigate("/login");
+        if (location.pathname !== "/about") {
+          navigate("/login");
+        } else {
+          navigate("/about");
+        }
       }
       setCurrentUser(user);
       setDataObj({});
@@ -118,7 +123,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {currentUser && <BottomNav />}
+      {currentUser && currentPage.page !== "about" && <BottomNav />}
       {!loading && children}
     </AuthContext.Provider>
   );

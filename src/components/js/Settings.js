@@ -118,7 +118,7 @@ const Settings = () => {
     <div className="settings">
       <div className="settingsDiv">
         <form className="settingsForm" onSubmit={saveSettings}>
-          <div className="settingsItem">
+          <div className="settingsItem addictionOption">
             {/* dropdown input */}
             <label className="settingLabel" htmlFor="addictionType">
               Addiction Type:{" "}
@@ -137,6 +137,7 @@ const Settings = () => {
               <option value="nicotine">Nicotine</option>
               <option value="gambling">Gambling</option>
             </select>
+            <p className="settingNote">Note: If an addiction type is selected, the panic button will route you with resources that correspond with your addiction.</p>
           </div>
           <div className="settingsItem">
             {/* datetime picker */}

@@ -72,11 +72,11 @@ html {
   font-size: 1.15rem;
   background: var(--color-tertiary);
   /* background: linear-gradient(-45deg, #9b533d, #be3a6d, #2a8aad, #2faa8d); */
-  background-size: 400% 400%;
-  animation: gradient 8s ease infinite;
+  /* background-size: 400% 400%;
+  animation: gradient 8s ease infinite; */
 }
 
-@keyframes gradient {
+/* @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -86,7 +86,7 @@ html {
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 .signUpSubmit:hover,
 .logInSubmit:hover {

@@ -26,24 +26,25 @@
   border-radius: 15px 0 0 15px;
   color: white;
   /* shadow down to the left */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow) 0px 8px 24px;
 }
 
 .bottomButtons {
-  position: absolute;
+  position: fixed;
   display: flex;
+  height: fit-content;
   flex-direction: row;
-  gap: 15px;
+  gap: 10px;
   bottom: 0px;
   left: 0px;
-  right: unset;
-  height: fit-content;
-  width: fit-content;
   align-items: center;
   justify-content: center;
-  padding: 15px 15px;
+  padding: 15px 15px 15px 15px;
   border-radius: 0 15px 0 0;
   background: var(--color-secondary);
+  box-shadow: var(--shadow) 0px 8px 24px;
+  z-index: 5;
+  appearance: none;
 }
 
 .bottomButtonContainer {
@@ -52,6 +53,7 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+  
 }
 
 .bottomButton {
@@ -123,5 +125,11 @@
   .bottomButtonText {
     font-size: 10px;
     margin-top: 0px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .bottomButtons {
+    gap: 6px;
   }
 }

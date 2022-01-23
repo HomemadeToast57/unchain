@@ -61,6 +61,7 @@
   margin: auto;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: var(--shadow) 0px 8px 24px;
 }
 
 @media screen and (min-width: 858px) {

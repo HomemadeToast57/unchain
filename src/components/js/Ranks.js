@@ -129,6 +129,7 @@ const Ranks = () => {
               (currentRank === rank.id ? "currentRank " : " ") +
               (rank.id === 17 ? "lastRank" : "")
             }
+            id={currentRank === rank.id ? "currentRank" : " "}
             key={rank.id}
           >
             <h1 className="rankName">{rank.name}</h1>

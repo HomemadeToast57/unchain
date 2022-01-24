@@ -119,7 +119,7 @@ const About = () => {
           <span className="coffeeButtonText">Buy me a coffee!</span>
         </a>
 
-        <div className="horizontalLine"></div>
+        <div className="horizontalSeparator"></div>
 
         <footer className="footer">
           <div className="creditsContainer">

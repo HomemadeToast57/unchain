@@ -91,7 +91,7 @@ export function AuthProvider({ children }) {
         console.log("signed in");
       } else {
         console.log("signed out");
-        if (location.pathname !== "/about") {
+        if (location.pathname === "/login") {
           navigate("/login");
         } else {
           navigate("/about");

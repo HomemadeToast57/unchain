@@ -21,7 +21,7 @@ const Dashboard = () => {
   useEffect(() => {
     setCurrentPage({
       page: "home",
-      title: "Unchain",
+      title: "Unchain.",
     });
   }, [setCurrentPage]);
 

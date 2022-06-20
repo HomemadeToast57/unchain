@@ -12,7 +12,7 @@ const History = () => {
   useEffect(() => {
     setCurrentPage({
       page: "history",
-      title: "History",
+      title: "My History",
     });
   }, [setCurrentPage]);
 

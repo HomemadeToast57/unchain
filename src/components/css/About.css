@@ -29,11 +29,16 @@
   margin-top: 10px;
 }
 
+.timerAbt {
+  margin: 70px 30px;
+}
+
 .aboutBtn {
   width: 100%;
   height: 60px;
   border: none;
-  border-radius: var(--borderRadius);
+  border-radius: 10px;
+  /* border-radius: var(--borderRadius); */
   color: var(--opposing-text);
   font-size: 1.15rem;
   background: var(--color-tertiary);
@@ -94,8 +99,8 @@
   font-weight: 600;
 }
 
-.footer {
-  margin-bottom: 10px;
+footer {
+  margin-bottom: 20px;
 }
 
 .developedBy {
@@ -108,7 +113,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  margin: 10px 0;
+  margin: 10px 0 25px 0;
 }
 
 .creditLink {
@@ -175,6 +180,16 @@
   margin-right: 10px;
 }
 
+.privacy {
+  opacity: 80%;
+}
+
+.privacy:hover {
+  opacity: 50%;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .myImg {
   width: 70px;
   height: 70px;
@@ -193,7 +208,7 @@
 }
 
 .copyright {
-  margin: 20px 0 10px 0;
+  margin: 20px 0 25px 0;
   width: 100%;
   text-align: center;
   font-weight: 600;
@@ -208,7 +223,8 @@
   justify-content: center;
   color: #ffffff;
   background-color: #ff813f;
-  border-radius: 5px;
+  /* border-radius: 5px; */
+  border-radius: 10px;
   border: 1px solid transparent;
   padding: 0.5rem;
   font-size: 1rem;
@@ -250,6 +266,7 @@
   }
 
   .links {
+    margin-top: 10px;
     width: 100%;
     justify-content: center;
   }

@@ -17,6 +17,7 @@ import Ranks from "./Ranks";
 import About from "./About";
 import PageNotFound from "./PageNotFound";
 import Settings from "./Settings";
+import Privacy from "./Privacy";
 
 function App() {
   return (
@@ -91,6 +92,7 @@ function App() {
               }
             />
             <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

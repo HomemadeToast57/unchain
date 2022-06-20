@@ -123,7 +123,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {currentUser && currentPage.page !== "about" && <BottomNav />}
+      {currentUser && (currentPage.page !== "about" && currentPage.page !== "privacy") && <BottomNav />}
       {!loading && children}
     </AuthContext.Provider>
   );

@@ -33,7 +33,7 @@ const NavBar = () => {
   const goHome = () => {
     setCurrentPage({
       page: "home",
-      title: "Unchain",
+      title: "Unchain.",
     });
     if (currentUser) {
       navigate("/");

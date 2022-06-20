@@ -4,7 +4,7 @@ import Loading from "../components/js/Loading";
 const TimeLoader = ({ children }) => {
   const { elapsedTime } = useTime();
 
-  return elapsedTime ? children : <Loading/>;
+  return elapsedTime ? children : <Loading />;
 };
 
 export default TimeLoader;

@@ -20,7 +20,6 @@ const Settings = () => {
   );
   const navigate = useNavigate();
 
-
   useEffect(() => {
     setTimeStart(moment(dataObj.timeStart.toJSON().seconds * 1000).format());
     setTimeStartISO(timeStart.substring(0, timeStart.length - 9));
@@ -109,7 +108,7 @@ const Settings = () => {
     }
     await setCurrentPage({
       page: "home",
-      title: "Unchain",
+      title: "Unchain.",
     });
     return navigate("/");
   };
@@ -137,7 +136,10 @@ const Settings = () => {
               <option value="nicotine">Nicotine</option>
               <option value="gambling">Gambling</option>
             </select>
-            <p className="settingNote">Note: If an addiction type is selected, the panic button will route you with resources that correspond with your addiction.</p>
+            <p className="settingNote">
+              Note: If an addiction type is selected, the panic button will
+              route you with resources that correspond with your addiction.
+            </p>
           </div>
           <div className="settingsItem">
             {/* datetime picker */}
@@ -155,8 +157,8 @@ const Settings = () => {
           </div>
           <div
             className={`settingsButtonsContainer ${
-              Object.keys(settingsObj).length > 0
-                ? "changesMade" : ""}`}
+              Object.keys(settingsObj).length > 0 ? "changesMade" : ""
+            }`}
           >
             <button type="submit">Save</button>
             {Object.keys(settingsObj).length > 0 && (

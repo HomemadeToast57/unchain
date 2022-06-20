@@ -1,8 +1,7 @@
 import React from "react";
 import "../css/Alert.css";
 
-const Alert = ({ errorMessage, color, handleAlertClose}) => {
-
+const Alert = ({ errorMessage, color, handleAlertClose }) => {
   function getHex() {
     switch (color) {
       case "red":
@@ -15,11 +14,8 @@ const Alert = ({ errorMessage, color, handleAlertClose}) => {
   }
 
   return (
-    <div className="alert" style={{backgroundColor: getHex(color)}}> 
-      <span
-        className="closebtn"
-        onClick={() => handleAlertClose()}
-      >
+    <div className="alert" style={{ backgroundColor: getHex(color) }}>
+      <span className="closebtn" onClick={() => handleAlertClose()}>
         &times;
       </span>
       {errorMessage ? errorMessage : "No error message"}

@@ -16,7 +16,6 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
 .authTitle {
@@ -98,8 +97,8 @@ html {
   background-color: var(--color-primary);
 }
 
-
-.haveAccount, .have-account-link {
+.haveAccount,
+.have-account-link {
   text-align: center;
   width: 100%;
   color: var(--color-primary);
@@ -127,5 +126,4 @@ html {
 
     margin: auto;
   }
-  
 }

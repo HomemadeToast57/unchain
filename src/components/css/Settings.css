@@ -104,5 +104,4 @@ html[data-theme="dark"] ::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (min-height: var(--listWidth)) {
-  
 }

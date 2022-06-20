@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
   const [dataObj, setDataObj] = useState({});
   const [currentPage, setCurrentPage] = useState({
     page: "",
-    title: "Unchain",
+    title: "Unchain.",
   });
   const db = firebase.firestore();
   const usersRef = db.collection("users");
@@ -123,7 +123,9 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {currentUser && (currentPage.page !== "about" && currentPage.page !== "privacy") && <BottomNav />}
+      {currentUser &&
+        currentPage.page !== "about" &&
+        currentPage.page !== "privacy" && <BottomNav />}
       {!loading && children}
     </AuthContext.Provider>
   );

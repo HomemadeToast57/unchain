@@ -46,7 +46,6 @@ const SignUp = () => {
     } catch (error) {
       setError("Failed to create account. " + error);
     }
-
   }
 
   function handleAlertClose() {
@@ -54,50 +53,48 @@ const SignUp = () => {
   }
 
   return (
-      <div className="auth">
-        {error && (
-          <Alert
-            color="red"
-            errorMessage={error}
-            handleAlertClose={handleAlertClose}
-          />
-        )}
-        <div className="authDiv">
-          <h1 className="authTitle">Sign Up</h1>
-          <form className="authForm" onSubmit={handleSubmit}>
-            <div className="inputs">
-              <div id="email" className="formGroup">
-                <p className="emailLabel" htmlFor="email">
-                  Email
-                </p>
-                <input type="email" ref={emailRef} required />
-              </div>
-              <div id="password" className="formGroup">
-                <p className="passwordLabel">Password</p>
-                <input type="password" ref={passwordRef} required />
-              </div>
-              <div id="password-confirm" className="formGroup">
-                <p className="passwordConfirmationLabel">
-                  Password Confirmation
-                </p>
-                <input
-                  type="password"
-                  ref={passwordConfirmationRef}
-                  name="confirmPassword"
-                  required
-                />
-              </div>
+    <div className="auth">
+      {error && (
+        <Alert
+          color="red"
+          errorMessage={error}
+          handleAlertClose={handleAlertClose}
+        />
+      )}
+      <div className="authDiv">
+        <h1 className="authTitle">Sign Up</h1>
+        <form className="authForm" onSubmit={handleSubmit}>
+          <div className="inputs">
+            <div id="email" className="formGroup">
+              <p className="emailLabel" htmlFor="email">
+                Email
+              </p>
+              <input type="email" ref={emailRef} required />
             </div>
+            <div id="password" className="formGroup">
+              <p className="passwordLabel">Password</p>
+              <input type="password" ref={passwordRef} required />
+            </div>
+            <div id="password-confirm" className="formGroup">
+              <p className="passwordConfirmationLabel">Password Confirmation</p>
+              <input
+                type="password"
+                ref={passwordConfirmationRef}
+                name="confirmPassword"
+                required
+              />
+            </div>
+          </div>
 
-            <button disabled={loading} className="signUpSubmit" type="submit">
-              Sign Up
-            </button>
-          </form>
-        </div>
-          <Link to="/login" className="haveAccount have-account-link forgotPass">
-            Already have an account? Log In
-          </Link>
+          <button disabled={loading} className="signUpSubmit" type="submit">
+            Sign Up
+          </button>
+        </form>
       </div>
+      <Link to="/login" className="haveAccount have-account-link forgotPass">
+        Already have an account? Log In
+      </Link>
+    </div>
   );
 };
 

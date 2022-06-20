@@ -68,9 +68,9 @@ const ForgotPassword = () => {
           Return to Login
         </Link>
       </div>
-        <Link to="/signup" className="haveAccount have-account-link">
-          Need an account? Sign Up
-        </Link>
+      <Link to="/signup" className="haveAccount have-account-link">
+        Need an account? Sign Up
+      </Link>
     </div>
   );
 };

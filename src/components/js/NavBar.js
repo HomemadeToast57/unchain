@@ -18,7 +18,6 @@ const NavBar = () => {
   const handleClick = () => {
     document.getElementById("check").checked = false;
   };
-    
 
   async function handleLogout() {
     handleClick();
@@ -78,7 +77,11 @@ const NavBar = () => {
         )} */}
         <li className="navItem">
           <div className="navElement">
-            <button title="Change Theme" className={"navButton"} onClick={changeTheme}>
+            <button
+              title="Change Theme"
+              className={"navButton"}
+              onClick={changeTheme}
+            >
               <i
                 className={`fas fa-${
                   theme === "light" ? "moon" : "sun"
@@ -105,7 +108,14 @@ const NavBar = () => {
         )}
         <li className="navItem">
           <div className="navElement">
-            <button title="About Unchain" className={"navButton"} onClick={() => {handleClick(); navigate("/about");}}>
+            <button
+              title="About Unchain"
+              className={"navButton"}
+              onClick={() => {
+                handleClick();
+                navigate("/about");
+              }}
+            >
               <i className="fas fa-info iconNav"></i>
             </button>
           </div>
@@ -113,7 +123,11 @@ const NavBar = () => {
         {currentUser && (
           <li className="navItem">
             <div className="navElement">
-              <button title="Log Out" className={"navButton"} onClick={handleLogout}>
+              <button
+                title="Log Out"
+                className={"navButton"}
+                onClick={handleLogout}
+              >
                 <i className="fas fa-sign-out-alt iconNav"></i>
               </button>
             </div>

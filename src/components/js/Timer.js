@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { buildStyles, CircularProgressbarWithChildren } from "react-circular-progressbar";
+import {
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "../css/Timer.css";
 
@@ -27,7 +30,12 @@ const Timer = () => {
     <div className="timerContainerDiv">
       <CircularProgressbarWithChildren
         value={dayPercent}
-        styles={buildStyles({ textSize: "1rem", strokeLinecap: "round", top: "0", left: "0" })}
+        styles={buildStyles({
+          textSize: "1rem",
+          strokeLinecap: "round",
+          top: "0",
+          left: "0",
+        })}
         strokeWidth={4}
       >
         <div className="timerContents">
@@ -37,7 +45,6 @@ const Timer = () => {
           <h2 className="clock">{timeDisplay}</h2>
 
           <h3 className="sobriety">of freedom</h3>
-
         </div>
       </CircularProgressbarWithChildren>
     </div>

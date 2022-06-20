@@ -92,7 +92,7 @@ const About = () => {
             onClick={() => {
               setCurrentPage({
                 page: "home",
-                title: "Unchain",
+                title: "Unchain.",
               });
               navigate("/");
             }}
@@ -169,7 +169,7 @@ const About = () => {
             onClick={() => {
               setCurrentPage({
                 page: "home",
-                title: "Unchain",
+                title: "Unchain.",
               });
               navigate("/");
             }}

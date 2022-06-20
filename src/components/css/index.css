@@ -1,7 +1,6 @@
-
 html {
-    background: var(--background-color);
-    overflow: hidden;
+  background: var(--background-color);
+  overflow: hidden;
 }
 
 .preload * {

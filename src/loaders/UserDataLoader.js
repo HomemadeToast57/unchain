@@ -6,7 +6,6 @@ const UserDataLoader = ({ children }) => {
   const { currentUser, dataObj } = useAuth();
   const [ready, setReady] = useState(false);
 
-
   /* ----------------------------- Check If Ready ----------------------------- */
   useEffect(() => {
     if (currentUser) {
@@ -21,11 +20,7 @@ const UserDataLoader = ({ children }) => {
     // eslint-disable-next-line
   }, [currentUser, dataObj.timeStart]);
 
-
-
-  return (
-    <div className="pageContainer">{ready ? children : <Loading />}</div>
-  );
+  return <div className="pageContainer">{ready ? children : <Loading />}</div>;
 };
 
 export default UserDataLoader;

@@ -5,7 +5,7 @@ import "./components/css/Variables.css";
 import "./components/css/index.css";
 import $ from "jquery";
 
-$(window).on('load', function () {
+$(window).on("load", function () {
   $("body").removeClass("preload");
 });
 

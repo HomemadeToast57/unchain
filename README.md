@@ -34,9 +34,9 @@ This project is open source! Feel free to contribute to the codebase to further 
 
 ### Developed by: Jack Singer (@HomemadeToast57)
 
-## Contact Me
+## Feel Free to Contact Me!
 
-* [GitHub](https://github.com/HomemadeToast57)
-* [Twitter](https://twitter.com/HomemadeToast57")
-* [Email](mailto:jack@jacksinger.dev)
-* [LinkedIn](https://www.linkedin.com/in/jack-singer-b9a8b9a4/)
+* Portfolio Website: [jacksinger.dev](https://jacksinger.dev)
+* Twitter: [@HomemadeToast57](https://twitter.com/homemadetoast57)
+* Discord: [HomemadeToast#0374](https://discord.com/users/HomemadeToast#0374)
+* Email: [jacobsinger22@gmail.com](mailto:jacobsinger22@gmail.com)

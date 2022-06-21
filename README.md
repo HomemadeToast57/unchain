@@ -36,7 +36,7 @@ This project is open source! Feel free to contribute to the codebase to further 
 
 ## Contact Me
 
-* [GitHub]("https://github.com/HomemadeToast57")
-* [Twitter]("https://twitter.com/HomemadeToast57")
-* [Email]("mailto:jack@jacksinger.dev")
-* [LinkedIn]("https://www.linkedin.com/in/jack-singer-b9a8b9a4/")
+* [GitHub](https://github.com/HomemadeToast57)
+* [Twitter](https://twitter.com/HomemadeToast57")
+* [Email](mailto:jack@jacksinger.dev)
+* [LinkedIn](https://www.linkedin.com/in/jack-singer-b9a8b9a4/)

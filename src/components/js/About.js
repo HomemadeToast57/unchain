@@ -90,7 +90,8 @@ const About = () => {
           <h2 className="whatTitle smallTitle">What is Unchain?</h2>
           <p className="whatBody">
             Unchain is a simplistic and lightweight web application that allows
-            you to track your unhealthy habits and break free from them.
+            you to track your sobriety from your addictions and unhealthy habits
+            to break free from them!
           </p>
         </div>
 
@@ -146,8 +147,9 @@ const About = () => {
           <h2 className="whatTitle smallTitle">What does Unchain do?</h2>
           <ul className="features-list">
             <li className="features-bullet">
-              Provides a server-side sobriety counter to help visualize and
-              track total time of sobriety
+              Provides sobriety counter that can be synced between multiple
+              devices to help you visualize and track your progress towards
+              sobriety
             </li>
             <li className="features-bullet">
               Maintains a history of all past sobriety streaks
@@ -165,10 +167,10 @@ const About = () => {
         <div className="why">
           <h2 className="whyTitle smallTitle">Why make this app?</h2>
           <p className="whyBody">
-            I was on social media and I noticed people looking for an app that
-            could help them track their sobriety progress. Having recently
-            learned web application development, I saw this as a perfect
-            opportunity to make an app to help them keep free from their
+            I was scrolling through social media when I saw people looking for
+            an app that could help them track their sobriety progress. Having
+            recently learned web application development, I saw this as a
+            perfect opportunity to make an app to help them keep free from their
             addictive habits and achieve their sobriety goals. I knew that I was
             capable of making something that could make a positive impact on
             these people's lives. I could not miss that opportunity.
@@ -178,9 +180,9 @@ const About = () => {
         <div className="cost">
           <h2 className="costTitle smallTitle">How much does it cost?</h2>
           <p className="whyBody">
-            Nothing! This app is <b>entirely free</b> to use. There are no ads
-            or microtransactions in this app. If someone is asking you to pay to
-            use this app, they are scamming you.
+            Nothing! This app is <b>entirely free</b> to use! There are no ads,
+            microtransactions, or in-app-purchases in this app. If someone is
+            asking you to pay to use this app, they are scamming you.
           </p>
         </div>
         {currentUser ? (
@@ -212,7 +214,9 @@ const About = () => {
           </h2>
           <p className="whyBody">
             This project is open source! Feel free to contribute to the codebase
-            to further improve the app. Tips are also highly appreciated as they help support me while improving the app as well pay for expenses such as server costs.
+            to further improve the app. Tips are also highly appreciated as they
+            help support me while improving the app as well pay for expenses
+            such as server costs.
           </p>
         </div>
         <button

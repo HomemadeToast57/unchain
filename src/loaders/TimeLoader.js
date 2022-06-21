@@ -1,3 +1,4 @@
+import React from "react";
 import { useTime } from "../contexts/TimeContext";
 import Loading from "../components/js/Loading";
 

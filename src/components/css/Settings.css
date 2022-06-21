@@ -72,21 +72,35 @@ html[data-theme="dark"] ::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: 20px;
 }
 
 .settingsButtonsContainer > button {
   border: none;
   background: var(--color-tertiary);
-  height: 60px;
-  width: 100%;
-  border-radius: var(--borderRadius);
+  height: 50px;
+  width: 60%;
+  border-radius: 10px;
   color: var(--opposing-text);
   cursor: pointer;
 }
 
 .settingsButtonsContainer > button:hover {
   background-color: var(--color-primary);
+}
+
+.deleteAccount {
+  border: none;
+  background: none;
+  margin-top: 15px;
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+.deleteAccount:hover {
+  text-decoration: underline;
+  opacity: 70%;
 }
 
 @media screen and (min-height: 620px) {

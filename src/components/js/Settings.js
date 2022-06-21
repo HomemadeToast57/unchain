@@ -5,11 +5,12 @@ import "../css/Settings.css";
 import moment from "moment";
 import { useTime } from "../../contexts/TimeContext";
 import { useNavigate } from "react-router-dom";
+import { confirmAlert } from "react-confirm-alert";
 
 moment().format();
 
 const Settings = () => {
-  const { setCurrentPage, dataObj } = useAuth();
+  const { setCurrentPage, dataObj, deleteAccount } = useAuth();
   const { updateUser } = useTime();
   const [settingsObj, setSettingsObj] = useState({});
   const [timeStart, setTimeStart] = useState(
@@ -37,7 +38,9 @@ const Settings = () => {
 
     const getMinTime = () => {
       //get time from 10 years ago to DOMString
-      let time = moment().subtract(10, "years").format();
+      let time = moment()
+        .subtract(10, "years")
+        .format();
       let timeISO = time.substring(0, time.length - 9);
 
       return timeISO;
@@ -167,6 +170,30 @@ const Settings = () => {
               </button>
             )}
           </div>
+          <button className="deleteAccount" onClick={() => {
+            confirmAlert({
+              title: "Leaving so soon?",
+              message: "Are you sure you want to delete your account and all of your saved streaks? This cannot be undone.",
+              buttons: [
+                {
+                  label: "Yes",
+                  onClick: () => {
+                    deleteAccount();
+                    return navigate("/");
+                  }
+                },
+                {
+                  label: "No",
+                  onClick: () => {
+                    navigate("/settings");
+                    return true;
+                  }
+                }
+              ],
+            })
+          }}>
+            I would like to delete my account...
+          </button>
         </form>
       </div>
     </div>

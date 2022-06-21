@@ -37,7 +37,7 @@ const NavBar = () => {
     if (currentUser) {
       navigate("/");
     } else {
-      navigate("/login");
+      navigate("/about");
     }
   };
 
@@ -65,16 +65,7 @@ const NavBar = () => {
       <label onClick={goHome} className="logo">
         {currentPage.title}
       </label>
-      <ul>
-        {/* {!currentUser && (
-          <li>
-            <div className="navElement">
-              <Link className="navLink" to={"/about"}>
-                About
-              </Link>
-            </div>
-          </li>
-        )} */}
+      <ul className="navList">
         <li className="navItem">
           <div className="navElement">
             <button

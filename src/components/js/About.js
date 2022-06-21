@@ -86,9 +86,17 @@ const About = () => {
       <div className="aboutDiv">
         <h1 className="aboutTitle">Unchain Yourself From Your Addictions.</h1>
 
+        <div className="what">
+          <h2 className="whatTitle smallTitle">What is Unchain?</h2>
+          <p className="whatBody">
+            Unchain is a simplistic and lightweight web application that allows
+            you to track your unhealthy habits and break free from them.
+          </p>
+        </div>
+
         {currentUser ? (
           <button
-            className="aboutBtn"
+            className="aboutBtn dashButton"
             onClick={() => {
               setCurrentPage({
                 page: "home",
@@ -100,25 +108,15 @@ const About = () => {
             Go To Dashboard
           </button>
         ) : (
-          <button className="aboutBtn" onClick={() => navigate("/signup")}>
-            Get Started
-          </button>
-        )}
-
-        <div className="what">
-          <h2 className="whatTitle smallTitle">What is Unchain?</h2>
-          <p className="whatBody">
-            Unchain is a simplistic and lightweight web application that allows
-            you to track your unhealthy habits and break free from them.
-          </p>
-        </div>
-
-        {/* <figure>
-          <div className="dashImgContainer">
-            <img className="dashImg" alt="Unchain Dashboard"></img>
-            <figcaption className="caption">Dashboard of Unchain</figcaption>
+          <div className="loginButton">
+            <button className="aboutBtn" onClick={() => navigate("/login")}>
+              Log In
+            </button>
+            <button onClick={() => navigate("/signup")} className="signUpLink">
+              ...or click here to sign up for free!
+            </button>
           </div>
-        </figure> */}
+        )}
 
         <div className="timerAbt">
           <CircularProgressbarWithChildren
@@ -144,28 +142,50 @@ const About = () => {
           </CircularProgressbarWithChildren>
         </div>
 
+        <div className="what">
+          <h2 className="whatTitle smallTitle">What does Unchain do?</h2>
+          <ul className="features-list">
+            <li className="features-bullet">
+              Provides a server-side sobriety counter to help visualize and
+              track total time of sobriety
+            </li>
+            <li className="features-bullet">
+              Maintains a history of all past sobriety streaks
+            </li>
+            <li className="features-bullet">
+              Grants achievements for sobriety time milestones
+            </li>
+            <li className="features-bullet">
+              Features a built in panic button to direct the user to helpful
+              resources catered to their specific addiction.
+            </li>
+          </ul>
+        </div>
+
         <div className="why">
           <h2 className="whyTitle smallTitle">Why make this app?</h2>
           <p className="whyBody">
-            I was on winter break from college and I was looking for a way to
-            help others. I wondered if I could help others break free from their
-            addictions and help them achieve their goals. I knew that I was
+            I was on social media and I noticed people looking for an app that
+            could help them track their sobriety progress. Having recently
+            learned web application development, I saw this as a perfect
+            opportunity to make an app to help them keep free from their
+            addictive habits and achieve their sobriety goals. I knew that I was
             capable of making something that could make a positive impact on
-            people's lives. I could not miss that opportunity.
+            these people's lives. I could not miss that opportunity.
           </p>
         </div>
 
         <div className="cost">
           <h2 className="costTitle smallTitle">How much does it cost?</h2>
           <p className="whyBody">
-            Nothing! This app is entirely free to use. There are no ads or
-            microtransactions in this app. If someone is asking you to pay to
+            Nothing! This app is <b>entirely free</b> to use. There are no ads
+            or microtransactions in this app. If someone is asking you to pay to
             use this app, they are scamming you.
           </p>
         </div>
         {currentUser ? (
           <button
-            className="aboutBtn"
+            className="aboutBtn dashButton"
             onClick={() => {
               setCurrentPage({
                 page: "home",
@@ -177,9 +197,14 @@ const About = () => {
             Go To Dashboard
           </button>
         ) : (
-          <button className="aboutBtn" onClick={() => navigate("/signup")}>
-            Get Started
-          </button>
+          <div className="loginButton">
+            <button className="aboutBtn" onClick={() => navigate("/login")}>
+              Log In
+            </button>
+            <button onClick={() => navigate("/signup")} className="signUpLink">
+              ...or click here to sign up for free!
+            </button>
+          </div>
         )}
         <div className="contribute">
           <h2 className="contributeTitle smallTitle">
@@ -187,7 +212,7 @@ const About = () => {
           </h2>
           <p className="whyBody">
             This project is open source! Feel free to contribute to the codebase
-            to further improve the app.
+            to further improve the app. Tips are also highly appreciated as they help support me while improving the app as well pay for expenses such as server costs.
           </p>
         </div>
         <button
@@ -196,12 +221,12 @@ const About = () => {
             window.open("https://github.com/HomemadeToast57/unchain", "_blank");
           }}
         >
-          View the Source Code
+          Take Me To the Source Code!
         </button>
         <a
           className="buyButton"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           href="https://www.buymeacoffee.com/jacksinger"
         >
           <img
@@ -212,7 +237,9 @@ const About = () => {
           <span className="coffeeButtonText">Buy me a coffee!</span>
         </a>
 
-        <div className="horizontalSeparator"></div>
+        <div className="horizontalSeparatorContainer">
+          <div className="horizontalSeparator"></div>
+        </div>
 
         <footer className="footer">
           <div className="creditsContainer">
@@ -234,7 +261,7 @@ const About = () => {
                     className="creditLink website"
                     href="https://jacksinger.dev/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     <i className="fas fa-globe"></i>
                   </a>
@@ -242,7 +269,7 @@ const About = () => {
                     className="creditLink github"
                     href="https://github.com/HomemadeToast57"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     <i className="fab fa-github"></i>
                   </a>
@@ -250,7 +277,7 @@ const About = () => {
                     className="creditLink twitter"
                     href="https://twitter.com/HomemadeToast57/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     <i className="fab fa-twitter"></i>
                   </a>
@@ -258,7 +285,7 @@ const About = () => {
                     className="creditLink linkedin"
                     href="https://www.linkedin.com/in/jacobasinger/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     <i className="fab fa-linkedin"></i>
                   </a>
@@ -268,7 +295,9 @@ const About = () => {
           </div>
         </footer>
 
-        {/* <div className="horizontalLine"></div> */}
+        <div className="horizontalSeparatorContainer">
+          <div className="horizontalSeparator"></div>
+        </div>
 
         <footer className="copyright">
           <small>

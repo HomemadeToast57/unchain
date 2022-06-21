@@ -66,20 +66,20 @@ label.logo:hover {
   transition: 0.3s;
 }
 
-nav ul {
+nav .navList {
   float: right;
   /* margin-right: 20px; */
 }
-nav ul li {
+nav .navList .navItem {
   display: inline-block;
   line-height: 80px;
   margin: 0 5px;
 }
 
-li {
+.navItem {
   padding: 0 0 0 13px;
 }
-nav ul li a {
+nav .navList .navItem a {
   color: var(--color-primary);
   font-size: 17px;
   font-weight: 600;
@@ -137,7 +137,7 @@ a:hover {
     font-size: 30px;
     padding-left: 20px;
   }
-  nav ul li a {
+  nav .navList .navItem a {
     font-size: 16px;
   }
 }
@@ -145,7 +145,7 @@ a:hover {
   .checkbtn {
     display: block;
   }
-  ul {
+  .navList {
     border-radius: var(--borderRadius) 0 0 var(--borderRadius);
     position: fixed;
     padding: 20px;
@@ -158,12 +158,12 @@ a:hover {
     transition: all 0.5s;
     z-index: 50;
   }
-  nav ul li {
+  nav .navList .navItem {
     display: block;
     margin: 20px 8px;
     line-height: 30px;
   }
-  nav ul li a {
+  nav .navList .navItem a {
     color: var(--opposing-text);
     font-size: 20px;
     margin: 0;
@@ -172,7 +172,7 @@ a:hover {
   .navElement {
     width: 100%;
   }
-  #check:checked ~ ul {
+  #check:checked ~ .navList {
     right: 0;
   }
 }
@@ -187,7 +187,7 @@ section {
     color: var(--color-primary);
   }
 
-  ul {
+  .navList {
     margin-right: 10px;
   }
 
@@ -214,14 +214,14 @@ section {
 }
 
 @media screen and (max-height: 420px) and (max-width: 858px) {
-  ul {
+  .navList {
     height: fit-content;
     padding: 5px 20px 5px 5px;
     top: 0;
     z-index: 0;
   }
 
-  nav ul li {
+  nav .navList .navItem {
     padding: 0;
   }
 
@@ -236,11 +236,11 @@ section {
 }
 
 @media screen and (max-width: 350px) {
-  ul {
+  .navList {
     width: 100%;
   }
 
-  li {
+  .navItem {
     padding: 0;
   }
 }

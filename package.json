@@ -10,7 +10,7 @@
     "firebase": "^9.6.1",
     "firebase-react-hooks": "^0.8.0",
     "jquery": "^3.6.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "nth-check": "^2.1.1",
     "react": "^17.0.2",
     "react-circular-progressbar": "^2.0.4",
